@@ -11,7 +11,9 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://www.quickconverter.pro"]
+  origin: ['http://localhost:3000', 'https://quickconverter.pro', 'https://www.quickconverter.pro'],
+  methods: ['GET', 'POST'],
+  credentials: true
 }));
 
 const upload = multer({ dest: "uploads/" });
