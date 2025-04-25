@@ -149,5 +149,139 @@ button:disabled {
     flex-direction: column;
     align-items: center;
   }
+
+  .guide-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #f9fafb;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    margin-top: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
   
+  .guide-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 2rem;
+  }
+  
+  .guide-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .guide-steps {
+    flex: 1;
+    min-width: 320px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .step-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    line-height: 1.2;
+  }
+  
+  .step p {
+    font-size: 1rem;
+    color: #374151;
+  }
+  
+  .guide-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+  }
+  
+  .guide-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+  }
+  .guide-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 3rem;
+  }
+
+  .custom-upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: #0f172a;
+    border-radius: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .custom-upload input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  /* .upload-circle {
+    background-color: white;
+    color: #111;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 2px 2px 0 #444;
+    z-index: 1;
+  } */
+  
+  .plus-icon {
+    font-weight: 700;
+    font-size: 4rem; /* You can try 3rem or 4rem to fit inside cleanly */
+    color: #ffffff;
+    border-color: #d1d5db;
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(-2px); /* ✅ Nudge down if needed */
+  }
+  
+  .custom-upload p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    z-index: 1;
+  }
   

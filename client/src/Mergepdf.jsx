@@ -5,6 +5,7 @@ import "./Mergepdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
+import mergeGuideImg from "./assets/merge-guide.png";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);
@@ -99,7 +100,7 @@ function Mergepdf() {
                 <h1>Merge PDF Documents</h1>
                 <form onSubmit={handleSubmit} className="mergepdf-form">
                     <div className="upload-section">
-                        <label className="upload-box">
+                        <label className="custom-upload">
                             <input
                                 type="file"
                                 accept="application/pdf"
@@ -107,13 +108,16 @@ function Mergepdf() {
                                 onChange={handleFileChange}
                                 hidden
                             />
-                            📄 Click to upload PDF files (Max 10)
+                            <div className="upload-circle">
+                                <span className="plus-icon">+</span>
+                            </div>
+                            <p>Upload or Drag & Drop your files</p>
                         </label>
 
                         {error && <p className="error-message">{error}</p>}
 
                         <button type="submit" disabled={loading}>
-                            {loading ? "Merging..." : "Merge PDFs"}
+                            {loading ? "Merging..." : "Merge & Download"}
                         </button>
                     </div>
                     {loading && (
@@ -162,7 +166,37 @@ function Mergepdf() {
                         </DragDropContext>
                     </div>
                 )}
+
             </div>
+
+            <section className="guide-section">
+                <h2 className="guide-heading">How to Merge PDF Files</h2>
+                <div className="guide-content">
+                    <div className="guide-steps">
+
+
+                        <div className="step">
+                            <span className="step-icon">📤</span>
+                            <p><strong>Upload:</strong> Select up to 10 PDF files from your device.</p>
+                        </div>
+
+                        <div className="step">
+                            <span className="step-icon">⬇️</span>
+                            <p><strong>Reorder:</strong> Drag and drop files to arrange them.</p>
+                        </div>
+
+                        <div className="step">
+                            <span className="step-icon">📥</span>
+                            <p><strong>Merge:</strong> Click “Merge PDFs” to combine and download.</p>
+                        </div>
+                    </div>
+
+
+                    <div className="guide-image">
+                        <img src={mergeGuideImg} alt="Merging PDF Illustration" />
+                    </div>
+                </div>
+            </section>
         </>
     );
 }
