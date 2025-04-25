@@ -59,18 +59,29 @@ function Mergepdf() {
         const res = await fetch(`${API_BASE_URL}/merge-pdf`, {
             method: "POST",
             body: formData,
-        });
-
-        setLoading(false);
-
-        if (!res.ok) {
+          });
+          
+          if (!res.ok) {
             setError("❌ Failed to merge PDF files. Please try again.");
+            setLoading(false);
             return;
-        }
-
-        const blob = await res.blob();
-        const url = window.URL.createObjectURL(blob);
-        setDownloadLink(url);
+          }
+          
+          const blob = await res.blob();
+          const url = window.URL.createObjectURL(blob);
+          
+          // Option 1: Trigger instant download (auto)
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "merged.pdf";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          
+          // Optionally: show "Download again" button
+          setDownloadLink(url);
+          
+          setLoading(false);
     };
 
     return (
