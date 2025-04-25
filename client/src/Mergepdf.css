@@ -1,0 +1,153 @@
+.mergepdf-container {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.mergepdf-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.mergepdf-form input[type="file"] {
+    margin: 1rem auto;
+    display: block;
+}
+
+button {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #9ca3af;
+}
+
+.error-message {
+    color: #dc2626;
+    margin-top: 1rem;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #10b981;
+}
+
+.upload-box {
+    display: inline-block;
+    padding: 2rem 3rem;
+    background-color: #f9fafb;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.upload-box:hover {
+    background-color: #f3f4f6;
+}
+
+.mergepdf-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mergepdf-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.file-list {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 12px;
+}
+
+.file-list h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.file-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* NEW: keep text and button aligned vertically */
+.file-row span {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Button alignment */
+.file-row button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-row button:hover {
+    background-color: #dc2626;
+}
+
+.move-btns button {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
