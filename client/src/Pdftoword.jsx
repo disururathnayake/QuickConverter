@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
+import { Helmet } from "react-helmet";
 
 function Pdftoword() {
-  usePageTitle("PDF to Word | Quick Converter");
+
   const [file, setFile] = useState(null);
   const [downloadLink, setDownloadLink] = useState("");
   const [loading, setLoading] = useState(false);
@@ -43,6 +44,11 @@ function Pdftoword() {
 
   return (
     <>
+      <Helmet>
+        <title>PDF to Word Converter | Quick Converter</title>
+        <meta name="description" content="Convert PDF files to editable Word documents instantly. Free, fast, and secure PDF to DOCX conversion." />
+        <meta name="keywords" content="pdf to word, convert pdf to word, online pdf converter, quick converter, free pdf to docx" />
+      </Helmet>
       <Navbar />
 
       <div className="app-container">

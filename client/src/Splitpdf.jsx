@@ -3,6 +3,7 @@ import Navbar from "./templates/Navbar";
 import "./Splitpdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
+import { Helmet } from "react-helmet";
 
 function Splitpdf() {
   usePageTitle("Split PDF | Quick Converter");
@@ -46,6 +47,12 @@ function Splitpdf() {
 
   return (
     <>
+      <Helmet>
+        <title>Split PDF Pages | Quick Converter</title>
+        <meta name="description" content="Split selected pages from your PDF document with ease. Quick, simple and free PDF splitting." />
+        <meta name="keywords" content="split pdf, extract pdf pages, pdf splitter, free pdf tool, quick converter" />
+      </Helmet>
+
       <Navbar />
 
       <div className="app-container">

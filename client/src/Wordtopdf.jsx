@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
+import { Helmet } from "react-helmet";
 
 function Wordtopdf() {
     usePageTitle("Word to PDF | Quick Converter");
@@ -43,6 +44,12 @@ function Wordtopdf() {
 
     return (
         <>
+        <Helmet>
+  <title>Word to PDF Converter | Quick Converter</title>
+  <meta name="description" content="Convert Word documents to PDF format in seconds. Maintain layout and style perfectly with Quick Converter." />
+  <meta name="keywords" content="word to pdf, docx to pdf, convert word to pdf, online word converter, quick converter" />
+</Helmet>
+
             <Navbar />
 
             <div className="wordpdf-container">

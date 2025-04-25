@@ -4,9 +4,9 @@ import Navbar from "./templates/Navbar";
 import "./Mergepdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
+import { Helmet } from "react-helmet";
 
 function Mergepdf() {
-    usePageTitle("Merge PDF Files | Quick Converter");
     const [files, setFiles] = useState([]);
     const [downloadLink, setDownloadLink] = useState("");
     const [error, setError] = useState("");
@@ -59,36 +59,41 @@ function Mergepdf() {
         const res = await fetch(`${API_BASE_URL}/merge-pdf`, {
             method: "POST",
             body: formData,
-          });
-          
-          if (!res.ok) {
+        });
+
+        if (!res.ok) {
             setError("❌ Failed to merge PDF files. Please try again.");
             setLoading(false);
             return;
-          }
-          
-          // Convert to blob
-          const blob = await res.blob();
-          const url = window.URL.createObjectURL(blob);
-          
-          // Auto-trigger download
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = "merged.pdf";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          
-          // Revoke blob URL to free memory
-          setTimeout(() => window.URL.revokeObjectURL(url), 1000);
-          
-          // ✅ Skip setting any downloadLink state
-          setLoading(false);
-          setFiles([]); // optionally clear file list after
+        }
+
+        // Convert to blob
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        // Auto-trigger download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "merged.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        // Revoke blob URL to free memory
+        setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+
+        // ✅ Skip setting any downloadLink state
+        setLoading(false);
+        setFiles([]); // optionally clear file list after
     };
 
     return (
         <>
+            <Helmet>
+                <title>Merge PDF Files | Quick Converter</title>
+                <meta name="description" content="Easily merge multiple PDF documents into a single file. Simple, fast and free." />
+                <meta name="keywords" content="merge pdf, combine pdf, quick converter, online pdf tool" />
+            </Helmet>
             <Navbar />
             <div className="mergepdf-container">
                 <h1>Merge PDF Documents</h1>
