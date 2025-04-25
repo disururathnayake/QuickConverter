@@ -187,7 +187,7 @@ function Mergepdf() {
 
                         <div className="step">
                             <span className="step-icon">📥</span>
-                            <p><strong>Merge:</strong> Click “Merge PDFs” to combine and download.</p>
+                            <p><strong>Merge:</strong> Click “Merge & Download” to combine and download.</p>
                         </div>
                     </div>
 

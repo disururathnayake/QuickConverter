@@ -111,4 +111,44 @@
     color: #10b981;
     text-decoration: none;
   }
+  .custom-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f172a;
+    color: white;
+    padding: 3rem;
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* .upload-circle {
+    background-color: white;
+    color: #111;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 2px 2px 0 #444;
+    z-index: 1;
+  } */
+  
+  .plus-icon {
+    font-weight: 700;
+    font-size: 5rem;
+    color: #ffffff;
+    line-height: 1;
+  }
+  .guide-image img {
+    width: 100%;
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
   

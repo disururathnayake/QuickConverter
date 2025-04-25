@@ -4,6 +4,7 @@ import "./Splitpdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
+import splitGuideImg from "./assets/split-guide.png";
 
 function Splitpdf() {
   usePageTitle("Split PDF | Quick Converter");
@@ -49,8 +50,14 @@ function Splitpdf() {
     <>
       <Helmet>
         <title>Split PDF Pages | Quick Converter</title>
-        <meta name="description" content="Split selected pages from your PDF document with ease. Quick, simple and free PDF splitting." />
-        <meta name="keywords" content="split pdf, extract pdf pages, pdf splitter, free pdf tool, quick converter" />
+        <meta
+          name="description"
+          content="Split selected pages from your PDF document with ease. Quick, simple and free PDF splitting."
+        />
+        <meta
+          name="keywords"
+          content="split pdf, extract pdf pages, pdf splitter, free pdf tool, quick converter"
+        />
       </Helmet>
 
       <Navbar />
@@ -60,10 +67,11 @@ function Splitpdf() {
 
         <form onSubmit={handleSubmit} className="upload-form">
           <div className="upload-section">
-            <label className="upload-box">
+            <label className="custom-upload">
               <input
                 type="file"
                 accept="application/pdf"
+                hidden
                 onChange={(e) => {
                   const selectedFile = e.target.files[0];
                   if (selectedFile && selectedFile.type !== "application/pdf") {
@@ -75,13 +83,11 @@ function Splitpdf() {
                   setFile(selectedFile);
                   setError("");
                 }}
-                hidden
               />
-              {file ? (
-                <span className="file-name">✅ {file.name}</span>
-              ) : (
-                <span>📁 Click to upload a PDF file</span>
-              )}
+              <div className="upload-circle">
+                <span className="plus-icon">+</span>
+              </div>
+              <p>{file ? `✅ ${file.name}` : "Upload or Drag & Drop your file"}</p>
             </label>
 
             <input
@@ -113,6 +119,38 @@ function Splitpdf() {
           </a>
         )}
       </div>
+
+      <section className="guide-section">
+        <h2 className="guide-heading">How to Split a PDF File</h2>
+        <div className="guide-content">
+          <div className="guide-steps">
+            <div className="step">
+              <span className="step-icon">📤</span>
+              <p>
+                <strong>Upload:</strong> Select a PDF file from your device (up to 100MB).
+              </p>
+            </div>
+
+            <div className="step">
+              <span className="step-icon">✂️</span>
+              <p>
+                <strong>Select Pages:</strong> Enter pages to extract (e.g. 1, 3, 5-7).
+              </p>
+            </div>
+
+            <div className="step">
+              <span className="step-icon">📥</span>
+              <p>
+                <strong>Split:</strong> Click "Split PDF" to download the selected pages.
+              </p>
+            </div>
+          </div>
+
+          <div className="guide-image">
+            <img src={splitGuideImg} alt="Split PDF guide illustration" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
