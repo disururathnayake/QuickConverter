@@ -3,6 +3,7 @@ import "./Wordtopdf.css";
 import { Link } from "react-router-dom";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
+import { API_BASE_URL } from "./config";
 
 function Wordtopdf() {
     usePageTitle("Word to PDF | Quick Converter");
