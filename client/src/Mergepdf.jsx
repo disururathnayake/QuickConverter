@@ -67,10 +67,11 @@ function Mergepdf() {
             return;
           }
           
+          // Convert to blob
           const blob = await res.blob();
           const url = window.URL.createObjectURL(blob);
           
-          // Option 1: Trigger instant download (auto)
+          // Auto-trigger download
           const a = document.createElement("a");
           a.href = url;
           a.download = "merged.pdf";
@@ -78,10 +79,12 @@ function Mergepdf() {
           a.click();
           a.remove();
           
-          // Optionally: show "Download again" button
-          setDownloadLink(url);
+          // Revoke blob URL to free memory
+          setTimeout(() => window.URL.revokeObjectURL(url), 1000);
           
+          // ✅ Skip setting any downloadLink state
           setLoading(false);
+          setFiles([]); // optionally clear file list after
     };
 
     return (
