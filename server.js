@@ -11,7 +11,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://quick-converter-five.vercel.app"]
+  origin: ["http://localhost:3000", "https://www.quickconverter.pro"]
 }));
 
 const upload = multer({ dest: "uploads/" });
