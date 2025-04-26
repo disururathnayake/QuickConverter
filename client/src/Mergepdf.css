@@ -284,4 +284,30 @@ button:disabled {
     font-weight: 500;
     z-index: 1;
   }
+
+  .internal-link-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #cbd5e1; /* Light blue/gray */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .internal-link-box p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .internal-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .internal-link:hover {
+    text-decoration: underline;
+  }
+  
   

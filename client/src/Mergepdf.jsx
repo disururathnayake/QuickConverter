@@ -6,6 +6,7 @@ import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import mergeGuideImg from "./assets/merge-guide.png";
+import { Link } from "react-router-dom";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);
@@ -222,6 +223,13 @@ function Mergepdf() {
                     </div>
                 </div>
             </section>
+
+            <div className="internal-link-box">
+  <p>
+    Need to split PDFs after merging?{" "}
+    <Link to="/split-pdf" className="internal-link">Try our Split PDF Tool →</Link>
+  </p>
+</div>
         </>
     );
 }

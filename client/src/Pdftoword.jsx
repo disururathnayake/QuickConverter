@@ -6,6 +6,7 @@ import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 
+
 function Pdftoword() {
 
   const [file, setFile] = useState(null);
@@ -125,6 +126,13 @@ function Pdftoword() {
           </a>
         )}
       </div>
+
+      <div className="internal-link-box">
+  <p>
+    Need to turn your Word file back into PDF?{" "}
+    <Link to="/word-to-pdf" className="internal-link">Use our Word to PDF tool →</Link>
+  </p>
+</div>
     </>
   );
 }

@@ -17,28 +17,28 @@ function Home() {
       description: "Easily convert PDF files into fully editable Word documents for free.",
       image: pdfToWordImage,
       href: "/pdf-to-word",
-      alt: "PDF to Word Conversion Tool Preview",
+      alt: "PDF to Word Converter Icon",
     },
     {
       name: "Word to PDF Converter",
       description: "Quickly turn your Word documents into high-quality PDFs with one click.",
       image: wordtopdf,
       href: "/word-to-pdf",
-      alt: "Word to PDF Conversion Tool Preview",
+      alt: "Word to PDF Converter Icon",
     },
     {
       name: "Merge PDF Files",
       description: "Combine multiple PDFs into a single organized PDF file easily.",
       image: mergepdf,
       href: "/merge-pdf",
-      alt: "Merge PDF Files Tool Preview",
+      alt: "Merge PDF Files Icon",
     },
     {
       name: "Split PDF Pages",
       description: "Split a large PDF into smaller files or extract specific pages for free.",
       image: splitpdf,
       href: "/split-pdf",
-      alt: "Split PDF Pages Tool Preview",
+      alt: "plit PDF Pages Icon",
     },
   ];
 
@@ -56,6 +56,16 @@ function Home() {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.quickconverter.pro/" />
+        <script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Quick Converter",
+  "url": "https://www.quickconverter.pro",
+}
+`}
+</script>
       </Helmet>
       <Navbar />
 

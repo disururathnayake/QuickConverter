@@ -130,6 +130,13 @@ function Wordtopdf() {
                     </a>
                 )}
             </div>
+
+            <div className="internal-link-box">
+  <p>
+    Need to convert your PDF back into an editable Word document?{" "}
+    <Link to="/pdf-to-word" className="internal-link">Use our PDF to Word tool →</Link>
+  </p>
+</div>
         </>
     );
 }

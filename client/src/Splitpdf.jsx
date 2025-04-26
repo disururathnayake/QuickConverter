@@ -5,6 +5,7 @@ import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import splitGuideImg from "./assets/split-guide.png";
+import { Link } from "react-router-dom";
 
 function Splitpdf() {
 
@@ -170,6 +171,13 @@ function Splitpdf() {
           </div>
         </div>
       </section>
+
+      <div className="internal-link-box">
+  <p>
+    Want to combine your PDFs after splitting?{" "}
+    <Link to="/merge-pdf" className="internal-link">Try our Merge PDF tool →</Link>
+  </p>
+</div>
     </>
   );
 }

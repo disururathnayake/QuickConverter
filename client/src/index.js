@@ -6,12 +6,14 @@ import PdfToWord from "./Pdftoword.jsx";
 import Wordtopdf from "./Wordtopdf.jsx";
 import Mergepdf from "./Mergepdf.jsx";
 import Splitpdf from "./Splitpdf.jsx";
+import ScrollToTop from "./ScrollToTop";
 import "./Pdftoword.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+  <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/pdf-to-word" element={<PdfToWord />} />
