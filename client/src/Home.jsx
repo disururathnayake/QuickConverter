@@ -7,39 +7,56 @@ import mergepdf from "./assets/merge-pdf.png";
 import splitpdf from "./assets/split-pdf.png";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
+import { Helmet } from "react-helmet";
 
 function Home() {
-  usePageTitle("Quick Converter");
+  
   const tools = [
     {
-      name: "PDF to Word",
-      description: "Convert PDF files into editable Word documents.",
+      name: "PDF to Word Converter",
+      description: "Easily convert PDF files into fully editable Word documents for free.",
       image: pdfToWordImage,
       href: "/pdf-to-word",
+      alt: "PDF to Word Conversion Tool Preview",
     },
     {
-      name: "Word to PDF",
-      description: "Convert Word files into PDF documents.",
+      name: "Word to PDF Converter",
+      description: "Quickly turn your Word documents into high-quality PDFs with one click.",
       image: wordtopdf,
       href: "/word-to-pdf",
+      alt: "Word to PDF Conversion Tool Preview",
     },
     {
-      name: "Merge PDF",
-      description: "Combine multiple PDF files into a single PDF File.",
+      name: "Merge PDF Files",
+      description: "Combine multiple PDFs into a single organized PDF file easily.",
       image: mergepdf,
       href: "/merge-pdf",
+      alt: "Merge PDF Files Tool Preview",
     },
     {
-      name: "Split PDF",
-      description: "Convert PDF files into editable Word documents.",
+      name: "Split PDF Pages",
+      description: "Split a large PDF into smaller files or extract specific pages for free.",
       image: splitpdf,
       href: "/split-pdf",
+      alt: "Split PDF Pages Tool Preview",
     },
-   
   ];
 
   return (
     <div className="main-container">
+      <Helmet>
+        <title>Quick Converter | Free Online PDF Conversion Tools</title>
+        <meta
+          name="description"
+          content="Quick Converter offers fast and free PDF tools like PDF to Word, Word to PDF, Merge PDF, and Split PDF. No signup required. Easy and secure."
+        />
+        <meta
+          name="keywords"
+          content="free pdf converter, pdf to word, word to pdf, merge pdf, split pdf, quick converter, online pdf tools"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.quickconverter.pro/" />
+      </Helmet>
       <Navbar />
 
       <header className="hero">
