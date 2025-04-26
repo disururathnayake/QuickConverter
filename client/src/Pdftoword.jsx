@@ -45,18 +45,35 @@ function Pdftoword() {
   return (
     <>
       <Helmet>
-  <title>PDF to Word Converter | Quick Converter</title>
-  <meta
-    name="description"
-    content="Convert your PDF files into editable Word documents for free with Quick Converter. No sign-up, no hassle."
-  />
-  <meta
-    name="keywords"
-    content="pdf to word, convert pdf to word, free pdf converter, online pdf to word tool, quick converter"
-  />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.quickconverter.pro/pdf-to-word" />
-</Helmet>
+        <title>PDF to Word Converter | Quick Converter</title>
+        <meta
+          name="description"
+          content="Convert your PDF files into editable Word documents for free with Quick Converter. No sign-up, no hassle."
+        />
+        <meta
+          name="keywords"
+          content="pdf to word, convert pdf to word, free pdf converter, online pdf to word tool, quick converter"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.quickconverter.pro/pdf-to-word" />
+        <script type="application/ld+json">
+          {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDF to Word Converter",
+      "url": "https://quickconverter.pro/pdf-to-word",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    `}
+        </script>
+      </Helmet>
       <Navbar />
 
       <div className="app-container">

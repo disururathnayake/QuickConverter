@@ -44,19 +44,36 @@ function Wordtopdf() {
 
     return (
         <>
-        <Helmet>
-  <title>Word to PDF Converter | Quick Converter</title>
-  <meta
-    name="description"
-    content="Easily convert Word documents (.doc, .docx) into professional PDFs online. 100% Free and secure with Quick Converter."
-  />
-  <meta
-    name="keywords"
-    content="word to pdf, convert word to pdf, free pdf converter, online word to pdf tool, quick converter"
-  />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.quickconverter.pro/word-to-pdf" />
-</Helmet>
+            <Helmet>
+                <title>Word to PDF Converter | Quick Converter</title>
+                <meta
+                    name="description"
+                    content="Easily convert Word documents (.doc, .docx) into professional PDFs online. 100% Free and secure with Quick Converter."
+                />
+                <meta
+                    name="keywords"
+                    content="word to pdf, convert word to pdf, free pdf converter, online word to pdf tool, quick converter"
+                />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://www.quickconverter.pro/word-to-pdf" />
+                <script type="application/ld+json">
+                    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Word to PDF Converter",
+      "url": "https://quickconverter.pro/word-to-pdf",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    `}
+                </script>
+            </Helmet>
 
 
             <Navbar />
