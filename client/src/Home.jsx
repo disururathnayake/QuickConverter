@@ -57,15 +57,23 @@ function Home() {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.quickconverter.pro/" />
         <script type="application/ld+json">
-{`
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Quick Converter",
-  "url": "https://www.quickconverter.pro",
-}
-`}
-</script>
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Disuru Rathnayake",
+      "url": "https://quickconverter.pro"
+    })}
+  </script>
+
+  {/* WebSite Schema */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://quickconverter.pro",
+      "name": "Quick Converter"
+    })}
+  </script>
       </Helmet>
       <Navbar />
 
