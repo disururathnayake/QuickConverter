@@ -110,7 +110,7 @@ function Splitpdf() {
               <div className="upload-circle">
                 <span className="plus-icon">+</span>
               </div>
-              <p>{file ? `✅ ${file.name}` : "Upload or Drag & Drop your file"}</p>
+              <p>{file ? `✅ ${file.name}` : "Upload your file"}</p>
             </label>
 
             <input

@@ -7,6 +7,8 @@ import Wordtopdf from "./Wordtopdf.jsx";
 import Mergepdf from "./Mergepdf.jsx";
 import Splitpdf from "./Splitpdf.jsx";
 import ScrollToTop from "./ScrollToTop";
+import Compresspdf from "./Compresspdf.jsx";
+
 import "./Pdftoword.css";
 
 
@@ -20,6 +22,7 @@ root.render(
       <Route path="/word-to-pdf" element={<Wordtopdf />} />
       <Route path="/merge-pdf" element={<Mergepdf />} />
       <Route path="/split-pdf" element={<Splitpdf />} />
+      <Route path="/compress-pdf" element={<Compresspdf />} />
     </Routes>
   </BrowserRouter>
 );

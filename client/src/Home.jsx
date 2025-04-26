@@ -5,6 +5,7 @@ import pdfToWordImage from "./assets/pdf-to-word.png";
 import wordtopdf from "./assets/word-to-pdf.png";
 import mergepdf from "./assets/merge-pdf.png";
 import splitpdf from "./assets/split-pdf.png";
+import compresspdf from "./assets/compress-pdf.png";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
@@ -39,6 +40,13 @@ function Home() {
       image: splitpdf,
       href: "/split-pdf",
       alt: "plit PDF Pages Icon",
+    },
+    {
+      name: "Compress PDF Files",
+      description: "Compress your PDF file size quickly and easily for free.",
+      image: compresspdf, // Import a new image like compress-pdf.png
+      href: "/compress-pdf",
+      alt: "Compress PDF Files Icon",
     },
   ];
 
