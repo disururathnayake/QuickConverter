@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet";
 import splitGuideImg from "./assets/split-guide.png";
 
 function Splitpdf() {
-  usePageTitle("Split PDF | Quick Converter");
 
   const [file, setFile] = useState(null);
   const [pageInput, setPageInput] = useState("");

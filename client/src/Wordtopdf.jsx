@@ -7,7 +7,6 @@ import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 
 function Wordtopdf() {
-    usePageTitle("Word to PDF | Quick Converter");
     const [file, setFile] = useState(null);
     const [downloadLink, setDownloadLink] = useState("");
     const [loading, setLoading] = useState(false);
