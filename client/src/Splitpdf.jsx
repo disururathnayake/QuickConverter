@@ -6,6 +6,8 @@ import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import splitGuideImg from "./assets/split-guide.png";
 import { Link } from "react-router-dom";
+import FAQAccordion from "./templates/FAQAccordion";
+import splitPdfFaqSchema from "./schemas/splitpdf-faq-schema";
 
 function Splitpdf() {
 
@@ -77,6 +79,7 @@ function Splitpdf() {
     }
     `}
         </script>
+        <script type="application/ld+json">{JSON.stringify(splitPdfFaqSchema)}</script>
       </Helmet>
 
 
@@ -171,6 +174,23 @@ function Splitpdf() {
           </div>
         </div>
       </section>
+
+      <FAQAccordion
+  faqs={[
+    {
+      question: "Can I split multiple pages at once?",
+      answer: "Yes, you can select multiple pages or page ranges like 2-4,6,8-10 to split."
+    },
+    {
+      question: "Will splitting a PDF change the original file?",
+      answer: "No, your original file remains unchanged. You download a new file with selected pages."
+    },
+    {
+      question: "Is there a maximum file size for splitting?",
+      answer: "We recommend uploading PDFs smaller than 100MB for best performance."
+    }
+  ]}
+/>
 
       <div className="internal-link-box">
   <p>

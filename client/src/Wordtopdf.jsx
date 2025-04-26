@@ -5,6 +5,8 @@ import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
+import wordToPdfFaqSchema from "./schemas/wordtopdf-faq-schema.js";
+import FAQAccordion from "./templates/FAQAccordion";
 
 function Wordtopdf() {
     const [file, setFile] = useState(null);
@@ -72,6 +74,7 @@ function Wordtopdf() {
     }
     `}
                 </script>
+                <script type="application/ld+json">{JSON.stringify(wordToPdfFaqSchema)}</script>
             </Helmet>
 
 
@@ -130,6 +133,23 @@ function Wordtopdf() {
                     </a>
                 )}
             </div>
+
+            <FAQAccordion
+  faqs={[
+    {
+      question: "Which Word file formats are supported?",
+      answer: "We support both .doc and .docx file formats for conversion to PDF."
+    },
+    {
+      question: "Can I upload multiple Word documents together?",
+      answer: "Currently, you can upload and convert one Word document at a time for best quality."
+    },
+    {
+      question: "Is Word to PDF conversion free?",
+      answer: "Yes, our Word to PDF converter is completely free with no account needed."
+    }
+  ]}
+/>
 
             <div className="internal-link-box">
   <p>

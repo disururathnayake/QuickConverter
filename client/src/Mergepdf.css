@@ -309,5 +309,38 @@ button:disabled {
   .internal-link:hover {
     text-decoration: underline;
   }
+
+  .faq-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f5f7fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .faq-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.3rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .faq-item p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
   
   

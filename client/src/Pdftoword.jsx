@@ -5,6 +5,8 @@ import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
+import pdfToWordFaqSchema from "./schemas/pdftoword-faq-schema.js";
+import FAQAccordion from "./templates/FAQAccordion";
 
 
 function Pdftoword() {
@@ -74,6 +76,7 @@ function Pdftoword() {
     }
     `}
         </script>
+        <script type="application/ld+json">{JSON.stringify(pdfToWordFaqSchema)}</script>
       </Helmet>
       <Navbar />
 
@@ -126,6 +129,23 @@ function Pdftoword() {
           </a>
         )}
       </div>
+
+      <FAQAccordion
+  faqs={[
+    {
+      question: "Can I convert scanned PDFs to Word?",
+      answer: "Currently, we only support text-based PDFs. Scanned images require OCR, which is not yet available."
+    },
+    {
+      question: "Will the formatting stay the same after conversion?",
+      answer: "We aim to preserve original formatting like fonts, images, and layout as much as possible."
+    },
+    {
+      question: "Is PDF to Word conversion free?",
+      answer: "Yes, our PDF to Word tool is completely free with no sign-up needed."
+    }
+  ]}
+/>
 
       <div className="internal-link-box">
   <p>

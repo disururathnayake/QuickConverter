@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Navbar from "./templates/Navbar";
+import FAQAccordion from "./templates/FAQAccordion";
 import "./Mergepdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import mergeGuideImg from "./assets/merge-guide.png";
 import { Link } from "react-router-dom";
+import mergePdfFaqSchema from "./schemas/mergepdf-faq-schema";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);
@@ -120,6 +122,10 @@ function Mergepdf() {
     }
     `}
                 </script>
+
+                <script type="application/ld+json">
+    {JSON.stringify(mergePdfFaqSchema)}
+  </script>
             </Helmet>
             <Navbar />
             <div className="mergepdf-container">
@@ -223,6 +229,23 @@ function Mergepdf() {
                     </div>
                 </div>
             </section>
+
+            <FAQAccordion
+  faqs={[
+    {
+      question: "How many PDFs can I merge at once?",
+      answer: "You can merge up to 10 PDF files at a time for best performance and speed."
+    },
+    {
+      question: "Is there a size limit for PDF merging?",
+      answer: "Each individual file should be under 100MB for smooth processing."
+    },
+    {
+      question: "Are my files safe after merging?",
+      answer: "Yes, all uploaded files are processed securely and automatically deleted after merging."
+    }
+  ]}
+/>
 
             <div className="internal-link-box">
   <p>
