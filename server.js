@@ -9,6 +9,12 @@ require("dotenv").config();
 
 const app = express();
 const port = 5000;
+const { exec } = require('child_process');
+const isWindows = process.platform === "win32";
+
+const ghostscriptCmd = isWindows
+  ? `"C:\\Program Files\\gs\\gs10.05.0\\bin\\gswin64c.exe"`
+  : "gs"; // for Linux servers like Render
 
 app.use(cors({
   origin: ['http://localhost:3000', 'https://quickconverter.pro', 'https://www.quickconverter.pro'],
@@ -219,6 +225,33 @@ function parsePageInput(input, maxPage) {
 
   return Array.from(pages).sort((a, b) => a - b);
 }
+
+app.post("/compress-pdf", upload.single("file"), async (req, res) => {
+  const filePath = req.file.path;
+  const compressedPath = path.join(__dirname, "uploads", `compressed-${Date.now()}.pdf`);
+
+  try {
+    const command = `${ghostscriptCmd} -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${compressedPath}" "${filePath}"`;
+
+    exec(command, (error) => {
+      if (error) {
+        console.error("Compression error:", error);
+        fs.unlinkSync(filePath);
+        return res.status(500).send("Failed to compress PDF.");
+      }
+
+      res.download(compressedPath, "compressed.pdf", () => {
+        fs.unlinkSync(filePath);
+        fs.unlinkSync(compressedPath);
+      });
+    });
+
+  } catch (err) {
+    console.error("Compress PDF error:", err.message);
+    fs.unlinkSync(filePath);
+    res.status(500).send("Failed to compress PDF.");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
