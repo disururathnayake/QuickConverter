@@ -126,6 +126,27 @@ function Mergepdf() {
                 <script type="application/ld+json">
     {JSON.stringify(mergePdfFaqSchema)}
   </script>
+
+  <script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://quickconverter.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Merge PDF",
+      "item": "https://quickconverter.pro/merge-pdf"
+    }
+  ]
+})}
+</script>
             </Helmet>
             <Navbar />
             <div className="mergepdf-container">

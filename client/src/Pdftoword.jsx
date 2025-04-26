@@ -77,6 +77,27 @@ function Pdftoword() {
     `}
         </script>
         <script type="application/ld+json">{JSON.stringify(pdfToWordFaqSchema)}</script>
+
+        <script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://quickconverter.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "PDF to Word",
+      "item": "https://quickconverter.pro/pdf-to-word"
+    }
+  ]
+})}
+</script>
       </Helmet>
       <Navbar />
 

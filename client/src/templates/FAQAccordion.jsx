@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import "./FAQAccordion.css"; // we'll add CSS next
+import "./FAQAccordion.css";
 
 const FAQAccordion = ({ faqs }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(null); // Close if already open
-    } else {
-      setOpenIndex(index);
-    }
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
@@ -22,7 +18,7 @@ const FAQAccordion = ({ faqs }) => {
             key={index}
             onClick={() => toggleFAQ(index)}
           >
-            <div className="faq-question">{faq.question}</div>
+            <h3 className="faq-question">{faq.question}</h3>
             <div className="faq-answer">{faq.answer}</div>
           </div>
         ))}

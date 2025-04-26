@@ -80,6 +80,27 @@ function Splitpdf() {
     `}
         </script>
         <script type="application/ld+json">{JSON.stringify(splitPdfFaqSchema)}</script>
+
+        <script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://quickconverter.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Split PDF",
+      "item": "https://quickconverter.pro/split-pdf"
+    }
+  ]
+})}
+</script>
       </Helmet>
 
 
