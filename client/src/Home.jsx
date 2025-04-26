@@ -60,8 +60,8 @@ function Home() {
       <Navbar />
 
       <header className="hero">
-        <h1>All-in-One PDF Tools</h1>
-        <p>Merge, split, compress, and convert your PDFs with ease.</p>
+        <h1>Quick Converter – Fast and Free PDF Conversion Tools</h1>
+        <p>Convert PDFs to Word, Word to PDFs, Merge, Split and more with our easy-to-use tools. 100% Free, No Signup Needed!</p>
       </header>
 
       <section className="tools-grid">

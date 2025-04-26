@@ -46,9 +46,18 @@ function Wordtopdf() {
         <>
         <Helmet>
   <title>Word to PDF Converter | Quick Converter</title>
-  <meta name="description" content="Convert Word documents to PDF format in seconds. Maintain layout and style perfectly with Quick Converter." />
-  <meta name="keywords" content="word to pdf, docx to pdf, convert word to pdf, online word converter, quick converter" />
+  <meta
+    name="description"
+    content="Easily convert Word documents (.doc, .docx) into professional PDFs online. 100% Free and secure with Quick Converter."
+  />
+  <meta
+    name="keywords"
+    content="word to pdf, convert word to pdf, free pdf converter, online word to pdf tool, quick converter"
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.quickconverter.pro/word-to-pdf" />
 </Helmet>
+
 
             <Navbar />
 

@@ -45,10 +45,18 @@ function Pdftoword() {
   return (
     <>
       <Helmet>
-        <title>PDF to Word Converter | Quick Converter</title>
-        <meta name="description" content="Convert PDF files to editable Word documents instantly. Free, fast, and secure PDF to DOCX conversion." />
-        <meta name="keywords" content="pdf to word, convert pdf to word, online pdf converter, quick converter, free pdf to docx" />
-      </Helmet>
+  <title>PDF to Word Converter | Quick Converter</title>
+  <meta
+    name="description"
+    content="Convert your PDF files into editable Word documents for free with Quick Converter. No sign-up, no hassle."
+  />
+  <meta
+    name="keywords"
+    content="pdf to word, convert pdf to word, free pdf converter, online pdf to word tool, quick converter"
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.quickconverter.pro/pdf-to-word" />
+</Helmet>
       <Navbar />
 
       <div className="app-container">

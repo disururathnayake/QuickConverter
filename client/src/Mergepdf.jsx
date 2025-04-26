@@ -91,10 +91,18 @@ function Mergepdf() {
     return (
         <>
             <Helmet>
-                <title>Merge PDF Files | Quick Converter</title>
-                <meta name="description" content="Easily merge multiple PDF documents into a single file. Simple, fast and free." />
-                <meta name="keywords" content="merge pdf, combine pdf, quick converter, online pdf tool" />
-            </Helmet>
+  <title>Merge PDF Files | Quick Converter</title>
+  <meta
+    name="description"
+    content="Easily merge multiple PDF documents into a single file. Simple, fast, and free."
+  />
+  <meta
+    name="keywords"
+    content="merge pdf, combine pdf, quick converter, online pdf tool"
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.quickconverter.pro/merge-pdf" />
+</Helmet>
             <Navbar />
             <div className="mergepdf-container">
                 <h1>Merge PDF Documents</h1>

@@ -49,16 +49,19 @@ function Splitpdf() {
   return (
     <>
       <Helmet>
-        <title>Split PDF Pages | Quick Converter</title>
-        <meta
-          name="description"
-          content="Split selected pages from your PDF document with ease. Quick, simple and free PDF splitting."
-        />
-        <meta
-          name="keywords"
-          content="split pdf, extract pdf pages, pdf splitter, free pdf tool, quick converter"
-        />
-      </Helmet>
+  <title>Split PDF Pages | Quick Converter</title>
+  <meta
+    name="description"
+    content="Split large PDF files into smaller parts or extract pages with Quick Converter. Fast, free, and easy to use."
+  />
+  <meta
+    name="keywords"
+    content="split pdf, extract pdf pages, pdf splitter, online pdf tools, quick converter"
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.quickconverter.pro/split-pdf" />
+</Helmet>
+
 
       <Navbar />
 
