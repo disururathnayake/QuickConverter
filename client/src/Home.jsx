@@ -9,6 +9,8 @@ import compresspdf from "./assets/compress-pdf.png";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
+import FAQAccordion from "./templates/FAQAccordion";
+import homeFaqSchema from "./schemas/home-faqs-schema.js"
 
 function Home() {
   
@@ -39,7 +41,7 @@ function Home() {
       description: "Split a large PDF into smaller files or extract specific pages for free.",
       image: splitpdf,
       href: "/split-pdf",
-      alt: "plit PDF Pages Icon",
+      alt: "Split PDF Pages Icon",
     },
     {
       name: "Compress PDF Files",
@@ -82,26 +84,51 @@ function Home() {
       "name": "Quick Converter"
     })}
   </script>
+  <script type="application/ld+json">
+  {JSON.stringify(homeFaqSchema)}
+</script>
       </Helmet>
       <Navbar />
 
       <header className="hero">
-        <h1>Quick Converter – Fast and Free PDF Conversion Tools</h1>
-        <p>Convert PDFs to Word, Word to PDFs, Merge, Split and more with our easy-to-use tools. 100% Free, No Signup Needed!</p>
-      </header>
+  <h1>Quick Converter – Fast and Free PDF Conversion Tools</h1>
+  <p>Convert PDFs to Word, Word to PDFs, Merge, Split and more with our easy-to-use tools. 100% Free, No Signup Needed!</p>
+</header>
 
-      <section className="tools-grid">
-        {tools.map((tool, index) => (
-          <div className="tool-card image-style" key={index}>
-            <img src={tool.image} alt={tool.name} className="tool-image" style={{ width: "128px", height: "128px", objectFit: "contain" }} />
-            <h2>{tool.name}</h2>
-            <p>{tool.description}</p>
-            <Link to={tool.href} className="tool-link">
-              Open Tool →
-            </Link>
-          </div>
-        ))}
-      </section>
+<h2 className="tools-heading">Our Popular Free PDF Tools</h2>
+
+<section className="tools-grid">
+  {tools.map((tool, index) => (
+    <Link to={tool.href} className="tool-card-link" key={index}>
+      <div className="tool-card image-style">
+        <img src={tool.image} alt={tool.name} className="tool-image" />
+        <h2>{tool.name}</h2>
+        <p>{tool.description}</p>
+      </div>
+    </Link>
+  ))}
+</section>
+<FAQAccordion
+    faqs={[
+      {
+        question: "Is Quick Converter free to use?",
+        answer: "Yes, Quick Converter is completely free to use. No signup or installation needed."
+      },
+      {
+        question: "Will my uploaded files be safe?",
+        answer: "Absolutely. We respect your privacy. Your uploaded files are automatically deleted after the conversion process."
+      },
+      {
+        question: "Are there any limits on file size?",
+        answer: "We recommend uploading PDF files smaller than 100MB for the best speed and performance."
+      },
+      {
+        question: "Can I use Quick Converter on mobile devices?",
+        answer: "Yes! Our website is fully responsive and works smoothly on smartphones, tablets, and desktops."
+      }
+    ]}
+  />
+
     </div>
   );
 }

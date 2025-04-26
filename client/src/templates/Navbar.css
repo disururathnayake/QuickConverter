@@ -78,12 +78,7 @@ body {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
   }
   
-  .tool-image {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-  }
+
   
   .tool-card h2 {
     font-size: 1.2rem;
