@@ -62,7 +62,7 @@ function Splitpdf() {
           content="split pdf, extract pdf pages, pdf splitter, online pdf tools, quick converter"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.quickconverter.pro/split-pdf" />
+        <link rel="canonical" href="https://quickconverter.pro/split-pdf" />
         <script type="application/ld+json">
           {`
     {

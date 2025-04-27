@@ -104,7 +104,7 @@ function Mergepdf() {
                     content="merge pdf, combine pdf, quick converter, online pdf tool"
                 />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://www.quickconverter.pro/merge-pdf" />
+                <link rel="canonical" href="https://quickconverter.pro/merge-pdf" />
                 <script type="application/ld+json">
                     {`
     {

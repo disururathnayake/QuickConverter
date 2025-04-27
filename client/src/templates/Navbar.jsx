@@ -14,7 +14,11 @@ function Navbar() {
         <Link to="/merge-pdf">Merge PDF</Link>
         <Link to="/split-pdf">Split PDF</Link>
         <Link to="/compress-pdf">Compress PDF</Link>
-        <Link to="/summarize-pdf">Summarize PDF</Link>
+        <Link to="/summarize-pdf" className="ai-highlight" >
+          Summarize PDF <span className="ai-icon" data-tooltip="Powered by AI">✨</span>
+        </Link>
+        <Link to="/pdf-to-jpg">PDF to JPG</Link>
+        <Link to="/jpg-to-pdf">JPG to PDF</Link>
       </div>
     </nav>
   );

@@ -113,6 +113,46 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
   }
+
+  .ai-highlight {
+    color: #38bdf8; /* light blue */
+    font-weight: 600;
+    text-shadow: 0 0 8px #38bdf8;
+    margin-left: 1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
   
+  .ai-highlight:hover {
+    color: #0ea5e9;
+    text-shadow: 0 0 12px #0ea5e9;
+  }
+
+  .ai-icon {
+    font-size: 1rem;
+    position: relative; /* <-- ADD THIS */
+    display: inline-block; /* <-- ADD THIS */
+    cursor: pointer; /* <-- Optional but makes sense for hover */
+  }
   
+  .ai-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.ai-icon:hover::after {
+  opacity: 1;
+}
   

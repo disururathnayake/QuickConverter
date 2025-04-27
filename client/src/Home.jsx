@@ -73,7 +73,7 @@ function Home() {
           content="free pdf converter, pdf to word, word to pdf, merge pdf, split pdf, compress pdf, summarize pdf, ai pdf summarizer, online pdf tools, quick converter"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.quickconverter.pro/" />
+        <link rel="canonical" href="https://quickconverter.pro/" />
         <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",

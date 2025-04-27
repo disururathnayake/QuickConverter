@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { google } = require("googleapis");
 const { PDFDocument } = require("pdf-lib");
+const pdfPoppler = require("pdf-poppler");
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,8 @@ const isWindows = process.platform === "win32";
 const { OpenAI } = require("openai"); // Already imported, skip if already there
 const pdfParse = require('pdf-parse'); // NEW for summarizing PDFs
 const AiPDFDocument = require('pdfkit');
+
+const archiver = require("archiver");
 
 const ghostscriptCmd = isWindows
   ? `"C:\\Program Files\\gs\\gs10.05.0\\bin\\gswin64c.exe"`
@@ -395,7 +398,81 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
   }
 });
 
+app.post("/pdf-to-jpg", upload.single("file"), async (req, res) => {
+  const filePath = req.file.path;
+  const outputFolder = path.join(__dirname, "uploads", `images-${Date.now()}`);
 
+  try {
+    fs.mkdirSync(outputFolder);
+
+    const opts = {
+      format: 'jpeg',
+      out_dir: outputFolder,
+      out_prefix: 'page',
+      page: null
+    };
+
+    await pdfPoppler.convert(filePath, opts);
+
+    const zipPath = path.join(__dirname, "uploads", `images-${Date.now()}.zip`);
+    const output = fs.createWriteStream(zipPath);
+    const archive = archiver('zip', { zlib: { level: 9 } });
+
+    archive.directory(outputFolder, false);
+    archive.pipe(output);
+    await archive.finalize();
+
+    output.on('close', () => {
+      res.download(zipPath, "converted-images.zip", () => {
+        fs.unlinkSync(filePath);
+        fs.unlinkSync(zipPath);
+        fs.rmSync(outputFolder, { recursive: true });
+      });
+    });
+  } catch (err) {
+    console.error("PDF to JPG conversion error:", err.message);
+    res.status(500).send("Failed to convert PDF to JPG.");
+  }
+});
+
+app.post("/jpg-to-pdf", upload.array("files", 20), async (req, res) => {
+  const files = req.files;
+  
+  if (!files || files.length === 0) {
+    return res.status(400).send("No JPG files uploaded.");
+  }
+
+  try {
+    const pdfDoc = await PDFDocument.create();
+
+    for (const file of files) {
+      const jpgImageBytes = fs.readFileSync(file.path);
+      const jpgImage = await pdfDoc.embedJpg(jpgImageBytes);
+      const jpgDims = jpgImage.scale(1);
+
+      const page = pdfDoc.addPage([jpgDims.width, jpgDims.height]);
+      page.drawImage(jpgImage, {
+        x: 0,
+        y: 0,
+        width: jpgDims.width,
+        height: jpgDims.height,
+      });
+    }
+
+    const pdfBytes = await pdfDoc.save();
+    const outputPath = path.join(__dirname, "uploads", `jpg-to-pdf-${Date.now()}.pdf`);
+    fs.writeFileSync(outputPath, pdfBytes);
+
+    res.download(outputPath, "merged.pdf", () => {
+      files.forEach(f => fs.unlinkSync(f.path));
+      fs.unlinkSync(outputPath);
+    });
+
+  } catch (err) {
+    console.error("JPG to PDF error:", err.message);
+    res.status(500).send("Failed to create PDF from JPGs.");
+  }
+});
 
 
 

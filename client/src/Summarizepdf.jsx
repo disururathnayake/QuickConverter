@@ -83,14 +83,14 @@ function Summarizepdf() {
           content="ai pdf summarizer, summarize pdf with ai, summarize pdf online, quick converter, ai summarize documents"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.quickconverter.pro/summarize-pdf" />
+        <link rel="canonical" href="https://quickconverter.pro/summarize-pdf" />
 
         {/* Structured Data */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Quick Converter - AI PDF Summarizer",
-          "url": "https://www.quickconverter.pro/summarize-pdf",
+          "url": "https://quickconverter.pro/summarize-pdf",
           "applicationCategory": "Utility",
           "operatingSystem": "All",
           "offers": {
@@ -108,13 +108,13 @@ function Summarizepdf() {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.quickconverter.pro/"
+              "item": "https://quickconverter.pro/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "AI PDF Summarizer",
-              "item": "https://www.quickconverter.pro/summarize-pdf"
+              "item": "https://quickconverter.pro/summarize-pdf"
             }
           ]
         })}</script>

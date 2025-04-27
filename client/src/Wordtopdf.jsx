@@ -56,7 +56,7 @@ function Wordtopdf() {
                     content="word to pdf, convert word to pdf, free pdf converter, online word to pdf tool, quick converter"
                 />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://www.quickconverter.pro/word-to-pdf" />
+                <link rel="canonical" href="https://quickconverter.pro/word-to-pdf" />
                 <script type="application/ld+json">
                     {`
     {

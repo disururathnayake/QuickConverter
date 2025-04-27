@@ -83,7 +83,7 @@ function Compresspdf() {
           content="compress pdf, reduce pdf size, pdf compression tool, free pdf compressor, quick converter"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.quickconverter.pro/compress-pdf" />
+        <link rel="canonical" href="https://quickconverter.pro/compress-pdf" />
         {/* WebApplication Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
