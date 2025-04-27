@@ -5,7 +5,6 @@ const fs = require("fs");
 const path = require("path");
 const { google } = require("googleapis");
 const { PDFDocument } = require("pdf-lib");
-const pdfPoppler = require("pdf-poppler");
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +17,10 @@ const pdfParse = require('pdf-parse'); // NEW for summarizing PDFs
 const AiPDFDocument = require('pdfkit');
 
 const archiver = require("archiver");
+
+const { createCanvas } = require('canvas');
+const pdfjsLib = require('pdfjs-dist');
+pdfjsLib.GlobalWorkerOptions.workerSrc = null;
 
 const ghostscriptCmd = isWindows
   ? `"C:\\Program Files\\gs\\gs10.05.0\\bin\\gswin64c.exe"`
@@ -398,21 +401,34 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
   }
 });
 
+
+
 app.post("/pdf-to-jpg", upload.single("file"), async (req, res) => {
   const filePath = req.file.path;
   const outputFolder = path.join(__dirname, "uploads", `images-${Date.now()}`);
-
+  
   try {
     fs.mkdirSync(outputFolder);
 
-    const opts = {
-      format: 'jpeg',
-      out_dir: outputFolder,
-      out_prefix: 'page',
-      page: null
-    };
+    const data = new Uint8Array(fs.readFileSync(filePath));
+    const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
+    const numPages = pdfDocument.numPages;
 
-    await pdfPoppler.convert(filePath, opts);
+    for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+      const page = await pdfDocument.getPage(pageNum);
+      const viewport = page.getViewport({ scale: 2.0 }); // 2.0 for higher resolution
+      const canvas = createCanvas(viewport.width, viewport.height);
+      const context = canvas.getContext('2d');
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport,
+      };
+      await page.render(renderContext).promise;
+
+      const buffer = canvas.toBuffer('image/jpeg', { quality: 0.95 });
+      fs.writeFileSync(path.join(outputFolder, `page-${pageNum}.jpg`), buffer);
+    }
 
     const zipPath = path.join(__dirname, "uploads", `images-${Date.now()}.zip`);
     const output = fs.createWriteStream(zipPath);
@@ -429,6 +445,7 @@ app.post("/pdf-to-jpg", upload.single("file"), async (req, res) => {
         fs.rmSync(outputFolder, { recursive: true });
       });
     });
+
   } catch (err) {
     console.error("PDF to JPG conversion error:", err.message);
     res.status(500).send("Failed to convert PDF to JPG.");
