@@ -48,7 +48,7 @@ function Pdftoword() {
   return (
     <>
       <Helmet>
-        <title>PDF to Word Converter | Quick Converter</title>
+      <title>Free PDF to Word Converter - Edit PDF Files Easily | Quick Converter</title>
         <meta
           name="description"
           content="Convert your PDF files into editable Word documents for free with Quick Converter. No sign-up, no hassle."

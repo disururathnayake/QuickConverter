@@ -94,7 +94,7 @@ function Mergepdf() {
     return (
         <>
             <Helmet>
-                <title>Merge PDF Files | Quick Converter</title>
+                <title>Merge PDF Files Online for Free - Quick Converter</title>
                 <meta
                     name="description"
                     content="Easily merge multiple PDF documents into a single file. Simple, fast, and free."

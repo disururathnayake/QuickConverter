@@ -46,7 +46,7 @@ function Wordtopdf() {
     return (
         <>
             <Helmet>
-                <title>Word to PDF Converter | Quick Converter</title>
+            <title>Convert Word to PDF Online - Free Fast Conversion | Quick Converter</title>
                 <meta
                     name="description"
                     content="Easily convert Word documents (.doc, .docx) into professional PDFs online. 100% Free and secure with Quick Converter."

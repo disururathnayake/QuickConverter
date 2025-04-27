@@ -51,7 +51,8 @@ function Splitpdf() {
   return (
     <>
       <Helmet>
-        <title>Split PDF Pages | Quick Converter</title>
+      <title>Split PDF Pages - Extract and Download Instantly | Quick Converter</title>
+
         <meta
           name="description"
           content="Split large PDF files into smaller parts or extract pages with Quick Converter. Fast, free, and easy to use."

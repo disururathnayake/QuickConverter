@@ -73,7 +73,7 @@ function Compresspdf() {
   return (
     <>
       <Helmet>
-        <title>Compress PDF Files | Quick Converter</title>
+      <title>Compress PDF Files Online - Reduce Size Fast | Quick Converter</title>
         <meta
           name="description"
           content="Easily reduce the size of your PDF files with Quick Converter. Fast, free, and secure online PDF compression."
@@ -131,8 +131,12 @@ function Compresspdf() {
       <Navbar />
 
       <div className="compresspdf-container">
-      <h1>Compress PDF Files and Reduce PDF File Size Online</h1>
-        <form onSubmit={handleSubmit} className="compresspdf-form">
+      <div className="page-header">
+  <h1 className="page-title">Compress and Shrink PDF Files Online Instantly</h1>
+  <p className="page-subtitle">
+    Quickly compress PDF files online with Quick Converter. Our free tool helps you shrink large PDFs without losing quality, optimize PDF files for faster uploads, and reduce file sizes for email or web sharing. No signup or installation needed — just upload, compress, and download!
+  </p>
+</div><form onSubmit={handleSubmit} className="compresspdf-form">
           <div className="upload-section">
             <label className="upload-box">
               <input
