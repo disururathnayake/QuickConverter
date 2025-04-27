@@ -265,7 +265,7 @@ app.post("/compress-pdf", upload.single("file"), async (req, res) => {
 
 app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
   const file = req.file;
-  const { format, fileType } = req.body; // Get user's format and fileType
+  const { format, fileType } = req.body;
 
   if (!file) {
     return res.status(400).send("No file uploaded.");
@@ -274,7 +274,15 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
   try {
     const dataBuffer = fs.readFileSync(file.path);
     const pdfData = await pdfParse(dataBuffer);
-    const extractedText = pdfData.text.slice(0, 4000); // Safe limit for OpenAI
+    const text = pdfData.text.trim();
+
+    const wordCount = text.split(/\s+/).length;
+    if (wordCount > 5000) {
+      fs.unlinkSync(file.path);
+      return res.status(413).send("❌ The uploaded PDF has more than 5000 words. Please upload a smaller document.");
+    }
+
+    const extractedText = text.slice(0, 4000); // Optional: limit characters for OpenAI safety
 
     let promptMessage = "";
     if (format === "bullet") {
@@ -291,10 +299,9 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
 
     const summary = response.choices[0].message.content.trim();
 
-    fs.unlinkSync(file.path); // Cleanup uploaded PDF
+    fs.unlinkSync(file.path); // delete uploaded file after successful summarization
 
     if (fileType === "docx") {
-      // 📄 Generate DOCX
       const { Document, Packer, Paragraph } = require("docx");
 
       const doc = new Document({
@@ -311,12 +318,12 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
               }),
               ...(
                 format === "bullet"
-                  ? summary.split('\n').filter(line => line.trim()).map(line => 
-                      new Paragraph({
-                        text: line.replace(/^-\s*/, '').trim(),
-                        bullet: { level: 0 },
-                      })
-                    )
+                  ? summary.split('\n').filter(line => line.trim()).map(line =>
+                    new Paragraph({
+                      text: line.replace(/^-\s*/, '').trim(),
+                      bullet: { level: 0 },
+                    })
+                  )
                   : [new Paragraph(summary)]
               ),
             ],
@@ -330,26 +337,21 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
 
       res.download(outputPath, "summary.docx", (err) => {
         fs.unlinkSync(outputPath);
-        if (err) {
-          console.error("Error sending DOCX file:", err);
-        }
+        if (err) console.error("Error sending DOCX file:", err);
       });
 
     } else {
-      // 📑 Generate PDF
       const PDFDocument = require('pdfkit');
       const pdfDoc = new PDFDocument();
       const outputPath = path.join(__dirname, "uploads", `summary-${Date.now()}.pdf`);
       const writeStream = fs.createWriteStream(outputPath);
 
       pdfDoc.pipe(writeStream);
-
       pdfDoc.font('Times-Bold').fontSize(20).text('Summarization', {
         align: 'center',
         underline: true,
       });
       pdfDoc.moveDown(1.5);
-
       pdfDoc.font('Times-Roman').fontSize(12);
 
       if (format === "bullet") {
@@ -375,9 +377,7 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
       writeStream.on('finish', () => {
         res.download(outputPath, "summary.pdf", (err) => {
           fs.unlinkSync(outputPath);
-          if (err) {
-            console.error("Error sending PDF file:", err);
-          }
+          if (err) console.error("Error sending PDF file:", err);
         });
       });
     }
@@ -388,6 +388,7 @@ app.post("/summarize-pdf", upload.single("file"), async (req, res) => {
     res.status(500).send("Failed to summarize PDF.");
   }
 });
+
 
 
 

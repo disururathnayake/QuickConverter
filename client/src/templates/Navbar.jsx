@@ -14,6 +14,7 @@ function Navbar() {
         <Link to="/merge-pdf">Merge PDF</Link>
         <Link to="/split-pdf">Split PDF</Link>
         <Link to="/compress-pdf">Compress PDF</Link>
+        <Link to="/summarize-pdf">Summarize PDF</Link>
       </div>
     </nav>
   );

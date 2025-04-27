@@ -104,41 +104,51 @@
     line-height: 1.5; /* slightly tighter lines */
   }
 
-  .button-group {
-  margin-top: 1rem;
-  text-align: left;
-}
-
-.button-group-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.button-options {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.option-button {
-  padding: 10px 20px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: black;
-}
-
-.option-button:hover {
-  background-color: #e6e6e6;
-}
-
-.option-button.active {
-  background-color: #0f172a;
-  color: white;
-  border-color: #0f172a;
-}
+  .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .option-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .option-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .button-options {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .option-button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: black;
+  }
+  
+  .option-button.active {
+    background-color: #0f172a;
+    color: #fff;
+    border-color: #0f172a;
+  }
+  
+  .option-button:hover {
+    background-color: #e6f0ff;
+  }
+  

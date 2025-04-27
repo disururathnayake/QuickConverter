@@ -6,6 +6,7 @@ import wordtopdf from "./assets/word-to-pdf.png";
 import mergepdf from "./assets/merge-pdf.png";
 import splitpdf from "./assets/split-pdf.png";
 import compresspdf from "./assets/compress-pdf.png";
+import summarizepdf from "./assets/summarize-pdf.png";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
@@ -50,6 +51,13 @@ function Home() {
       href: "/compress-pdf",
       alt: "Compress PDF Files Icon",
     },
+    {
+      name: "Summarize PDF with AI",
+      description: "Summarize PDF files automatically using powerful AI. Download concise summaries in seconds.",
+      image: summarizepdf,
+      href: "/summarize-pdf",
+      alt: "Summarize PDF with AI Icon",
+    },
   ];
 
   return (
@@ -58,11 +66,11 @@ function Home() {
         <title>Quick Converter | Free Online PDF Conversion Tools</title>
         <meta
           name="description"
-          content="Quick Converter offers fast and free PDF tools like PDF to Word, Word to PDF, Merge PDF, and Split PDF. No signup required. Easy and secure."
+          content="Quick Converter offers free and fast online PDF tools: Convert PDFs to Word, Word to PDFs, Merge, Split, Compress, and Summarize PDFs with AI. No signup needed!"
         />
         <meta
           name="keywords"
-          content="free pdf converter, pdf to word, word to pdf, merge pdf, split pdf, quick converter, online pdf tools"
+          content="free pdf converter, pdf to word, word to pdf, merge pdf, split pdf, compress pdf, summarize pdf, ai pdf summarizer, online pdf tools, quick converter"
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.quickconverter.pro/" />
@@ -92,7 +100,7 @@ function Home() {
 
       <header className="hero">
   <h1>Quick Converter – Fast and Free PDF Conversion Tools</h1>
-  <p>Convert PDFs to Word, Word to PDFs, Merge, Split and more with our easy-to-use tools. 100% Free, No Signup Needed!</p>
+  <p>Convert, Merge, Split, Compress, and Summarize PDFs and more with our easy-to-use tools. 100% Free, No Signup Needed!</p>
 </header>
 
 <h2 className="tools-heading">Our Popular Free PDF Tools</h2>
