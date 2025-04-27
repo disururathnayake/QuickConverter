@@ -46,7 +46,13 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-
+app.use((req, res, next) => {
+  if (req.headers.host && req.headers.host.startsWith('www.')) {
+    const newUrl = req.protocol + '://' + req.headers.host.slice(4) + req.originalUrl;
+    return res.redirect(301, newUrl); // 301 = permanent redirect
+  }
+  next();
+});
 
 app.post("/pdf-to-word", upload.single("file"), async (req, res) => {
   const filePath = req.file.path;
