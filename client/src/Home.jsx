@@ -7,6 +7,8 @@ import mergepdf from "./assets/merge-pdf.png";
 import splitpdf from "./assets/split-pdf.png";
 import compresspdf from "./assets/compress-pdf.png";
 import summarizepdf from "./assets/summarize-pdf.png";
+import jpgtopdf from "./assets/jpg-to-pdf.png";
+import pdftojpg from "./assets/pdf-to-jpg.png";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
@@ -57,6 +59,20 @@ function Home() {
       image: summarizepdf,
       href: "/summarize-pdf",
       alt: "Summarize PDF with AI Icon",
+    },
+    {
+      name: "PDF to JPG Converter",
+      description: "Convert PDF pages into high-quality JPG images quickly and easily.",
+      image: pdftojpg, // Import this new image
+      href: "/pdf-to-jpg",
+      alt: "PDF to JPG Converter Icon",
+    },
+    {
+      name: "JPG to PDF Converter",
+      description: "Merge your JPG images into a single polished PDF file effortlessly.",
+      image: jpgtopdf, // Import this new image
+      href: "/jpg-to-pdf",
+      alt: "JPG to PDF Converter Icon",
     },
   ];
 
