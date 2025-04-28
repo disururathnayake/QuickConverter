@@ -1,140 +1,77 @@
 /* Reset */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8fafc;
-    color: #1f2937;
-  }
-  
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0f172a;
-    padding: 1rem 2rem;
-    color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .nav-links a {
-    margin-left: 1.5rem;
-    color: #cbd5e1;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    color: white;
-  }
-  
-  /* Hero */
-  .hero {
-    text-align: center;
-    padding: 3rem 2rem 1rem;
-    background: linear-gradient(to right, #dbeafe, #f0f9ff);
-    border-bottom: 2px solid #e5e7eb;
-  }
-  
-  .hero h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hero p {
-    font-size: 1.1rem;
-    color: #475569;
-  }
-  
-  /* Tools Grid */
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  /* Tool Card */
-  .tool-card {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-  }
-  
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  color: #1f2937;
+}
 
-  
-  .tool-card h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .tool-card p {
-    font-size: 0.95rem;
-    color: #475569;
-    margin-bottom: 1rem;
-  }
-  
-  .tool-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #3b82f6;
-    color: white;
-    border-radius: 6px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  
-  .tool-link:hover {
-    background-color: #2563eb;
-  }
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f172a;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
 
-  .nav-brand-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
+.nav-brand-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 
-  .ai-highlight {
-    color: #38bdf8; /* light blue */
-    font-weight: 600;
-    text-shadow: 0 0 8px #38bdf8;
-    margin-left: 1rem;
-    transition: color 0.3s, text-shadow 0.3s;
-  }
-  
-  .ai-highlight:hover {
-    color: #0ea5e9;
-    text-shadow: 0 0 12px #0ea5e9;
-  }
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-  .ai-icon {
-    font-size: 1rem;
-    position: relative; /* <-- ADD THIS */
-    display: inline-block; /* <-- ADD THIS */
-    cursor: pointer; /* <-- Optional but makes sense for hover */
-  }
-  
-  .ai-icon::after {
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* AI Highlight */
+.ai-highlight {
+  color: #38bdf8;
+  font-weight: 600;
+  text-shadow: 0 0 8px #38bdf8;
+  margin-left: 1rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.ai-highlight:hover {
+  color: #0ea5e9;
+  text-shadow: 0 0 12px #0ea5e9;
+}
+
+/* Tooltip for AI icon */
+.ai-icon {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.ai-icon::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: -1.8rem;
@@ -155,4 +92,29 @@ body {
 .ai-icon:hover::after {
   opacity: 1;
 }
-  
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0f172a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 0.8rem 0;
+  }
+}
