@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { API_BASE_URL } from "./config";
 import "./Jpgtopdf.css";
 import jpgToPdfFaqSchema from "./schemas/jpgtopdf-faq-schema.js";
+import Footer from "./templates/footer.jsx";
 
 function JpgToPdf() {
   const [files, setFiles] = useState([]);
@@ -180,6 +181,12 @@ function JpgToPdf() {
           </a>
         )}
       </div>
+      <div className="tool-intro">
+  <h2>Why Convert JPG Images to PDF?</h2>
+  <p>
+    Merging multiple JPG images into a single PDF creates a clean, easy-to-share document. Whether you need to send scans, portfolios, or photo albums, our tool helps you combine your images into a professional-looking PDF file effortlessly.
+  </p>
+</div>
 
       <FAQAccordion
         faqs={[
@@ -204,6 +211,7 @@ function JpgToPdf() {
           <Link to="/pdf-to-jpg" className="internal-link">Try PDF to JPG tool →</Link>
         </p>
       </div>
+      <Footer />
     </>
   );
 }

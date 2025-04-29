@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { API_BASE_URL } from "./config";
 import "./Compresspdf.css";
 import compressPdfFaqSchema from "./schemas/compresspdf-faq-schema.js";
+import Footer from "./templates/footer.jsx";
 
 function Compresspdf() {
   const [file, setFile] = useState(null);
@@ -190,6 +191,12 @@ function Compresspdf() {
           </a>
         )}
       </div>
+      <div className="tool-intro">
+  <h2>Why Compress PDF Files?</h2>
+  <p>
+    Large PDF files can be slow to upload and share. Compressing PDFs reduces file size without losing quality, making them faster to email, upload, and store. Our tool helps you optimize documents for easy sharing while keeping them crisp and clear.
+  </p>
+</div>
 
       <FAQAccordion
         faqs={[
@@ -214,6 +221,7 @@ function Compresspdf() {
           <Link to="/split-pdf" className="internal-link">Try our Split PDF tool →</Link>
         </p>
       </div>
+      <Footer />
     </>
   );
 }

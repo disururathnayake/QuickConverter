@@ -14,6 +14,8 @@ import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
 import FAQAccordion from "./templates/FAQAccordion";
 import homeFaqSchema from "./schemas/home-faqs-schema.js"
+import Footer from "./templates/footer.jsx";
+
 
 function Home() {
   
@@ -152,8 +154,11 @@ function Home() {
       }
     ]}
   />
-
+<Footer />
     </div>
+    
+
+
   );
 }
 

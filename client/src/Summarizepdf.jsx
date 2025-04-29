@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { API_BASE_URL } from "./config";
 import summarizepdfFaqSchema from "./schemas/summarizepdf-faq-schema.js"; 
 import "./Summarizepdf.css";
+import Footer from "./templates/footer.jsx";
 
 function Summarizepdf() {
   const [file, setFile] = useState(null);
@@ -222,6 +223,13 @@ function Summarizepdf() {
         </form>
       </div>
 
+      <div className="tool-intro">
+  <h2>Why Use an AI PDF Summarizer?</h2>
+  <p>
+    Summarizing a long PDF manually can take hours. Our AI PDF summarizer makes it fast and easy by highlighting key points automatically. Whether you're reviewing study materials, reports, or business documents, getting quick summaries saves valuable time and boosts productivity.
+  </p>
+</div>
+
       <FAQAccordion
   faqs={[
     {
@@ -249,7 +257,9 @@ function Summarizepdf() {
           <Link to="/compress-pdf" className="internal-link">Try our Compress PDF tool →</Link>
         </p>
       </div>
+      <Footer />
     </>
+    
   );
 }
 

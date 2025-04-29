@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import mergeGuideImg from "./assets/merge-guide.png";
 import { Link } from "react-router-dom";
 import mergePdfFaqSchema from "./schemas/mergepdf-faq-schema";
+import Footer from "./templates/footer.jsx";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);
@@ -250,6 +251,12 @@ function Mergepdf() {
                     </div>
                 </div>
             </section>
+            <div className="tool-intro">
+  <h2>Why Merge Multiple PDFs?</h2>
+  <p>
+    Combining multiple PDFs into one organized document simplifies sharing and reading. Whether it's contracts, reports, or study materials, merging your files into a single PDF helps keep your information neat, accessible, and professional.
+  </p>
+</div>
 
             <FAQAccordion
   faqs={[
@@ -274,6 +281,7 @@ function Mergepdf() {
     <Link to="/split-pdf" className="internal-link">Try our Split PDF Tool →</Link>
   </p>
 </div>
+<Footer />
         </>
     );
 }

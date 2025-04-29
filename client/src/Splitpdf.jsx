@@ -8,6 +8,7 @@ import splitGuideImg from "./assets/split-guide.png";
 import { Link } from "react-router-dom";
 import FAQAccordion from "./templates/FAQAccordion";
 import splitPdfFaqSchema from "./schemas/splitpdf-faq-schema";
+import Footer from "./templates/footer.jsx";
 
 function Splitpdf() {
 
@@ -196,6 +197,12 @@ function Splitpdf() {
           </div>
         </div>
       </section>
+      <div className="tool-intro">
+  <h2>Why Split PDF Files?</h2>
+  <p>
+    Sometimes you don't need an entire PDF, just specific pages. Our PDF splitter lets you quickly extract only the sections you need, saving time and reducing file size. Perfect for editing, sharing, or reusing parts of larger documents.
+  </p>
+</div>
 
       <FAQAccordion
   faqs={[
@@ -220,6 +227,7 @@ function Splitpdf() {
     <Link to="/merge-pdf" className="internal-link">Try our Merge PDF tool →</Link>
   </p>
 </div>
+<Footer />
     </>
   );
 }

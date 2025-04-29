@@ -7,6 +7,7 @@ import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import pdfToWordFaqSchema from "./schemas/pdftoword-faq-schema.js";
 import FAQAccordion from "./templates/FAQAccordion";
+import Footer from "./templates/footer.jsx";
 
 
 function Pdftoword() {
@@ -150,6 +151,12 @@ function Pdftoword() {
           </a>
         )}
       </div>
+      <div className="tool-intro">
+  <h2>Why Convert PDF to Word?</h2>
+  <p>
+    Editing a PDF directly can be difficult. By converting a PDF into an editable Word document, you can easily update text, adjust formatting, and make changes. Our tool offers a fast and accurate way to unlock your PDF files for easy editing.
+  </p>
+</div>
 
       <FAQAccordion
   faqs={[
@@ -174,6 +181,7 @@ function Pdftoword() {
     <Link to="/word-to-pdf" className="internal-link">Use our Word to PDF tool →</Link>
   </p>
 </div>
+<Footer />
     </>
   );
 }

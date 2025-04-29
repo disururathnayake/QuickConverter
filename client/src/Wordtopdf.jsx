@@ -7,6 +7,7 @@ import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
 import wordToPdfFaqSchema from "./schemas/wordtopdf-faq-schema.js";
 import FAQAccordion from "./templates/FAQAccordion";
+import Footer from "./templates/footer.jsx";
 
 function Wordtopdf() {
     const [file, setFile] = useState(null);
@@ -154,7 +155,12 @@ function Wordtopdf() {
                     </a>
                 )}
             </div>
-
+            <div className="tool-intro">
+  <h2>Why Convert Word to PDF?</h2>
+  <p>
+    Converting your Word documents to PDF ensures your formatting stays perfect across all devices. PDFs are easier to share, more secure, and widely accepted for professional communication. Use our tool to create polished, high-quality PDFs instantly.
+  </p>
+</div>
             <FAQAccordion
   faqs={[
     {
@@ -178,6 +184,7 @@ function Wordtopdf() {
     <Link to="/pdf-to-word" className="internal-link">Use our PDF to Word tool →</Link>
   </p>
 </div>
+<Footer />
         </>
     );
 }

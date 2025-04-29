@@ -11,6 +11,8 @@ import Compresspdf from "./Compresspdf.jsx";
 import Summarizepdf from "./Summarizepdf.jsx";
 import Pdftojpg from "./Pdftojpg.jsx";
 import Jpgtopdf from "./Jpgtopdf.jsx";
+import PrivacyPolicy from "./PrivacyPolicy.jsx";
+import TermsOfService from "./TermsOfService.jsx";
 
 import "./Pdftoword.css";
 
@@ -29,6 +31,8 @@ root.render(
       <Route path="/summarize-pdf" element={<Summarizepdf />} />
       <Route path="/pdf-to-jpg" element={<Pdftojpg />} />
       <Route path="/jpg-to-pdf" element={<Jpgtopdf />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-service" element={<TermsOfService />} />
 
     </Routes>
   </BrowserRouter>

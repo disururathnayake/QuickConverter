@@ -151,4 +151,21 @@
   .option-button:hover {
     background-color: #e6f0ff;
   }
+  .tool-intro {
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 1rem;
+  }
   
+  .tool-intro h2 {
+    font-size: 1.5rem;
+    color: #000000; /* Blue highlight */
+    margin-bottom: 0.5rem;
+  }
+  
+  .tool-intro p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.6;
+  }

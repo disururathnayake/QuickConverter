@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { API_BASE_URL } from "./config";
 import "./Pdftojpg.css"; // You can reuse this CSS
 import pdfToJpgFaqSchema from "./schemas/pdftojpg-faq-schema.js";
+import Footer from "./templates/footer.jsx";
 
 
 function PdftoJpg() {
@@ -184,6 +185,12 @@ function PdftoJpg() {
           </a>
         )}
       </div>
+      <div className="tool-intro">
+  <h2>Why Convert PDF to JPG?</h2>
+  <p>
+    Turning your PDF into high-quality JPG images makes it easy to use content for presentations, social media, or printing. Our converter extracts each page as a separate, clear JPG, perfect for flexible sharing and reuse.
+  </p>
+</div>
 
       <FAQAccordion
         faqs={[
@@ -205,6 +212,7 @@ function PdftoJpg() {
       <div className="internal-link-box">
       <p>Want more free tools? <Link to="/" className="internal-link">Explore Quick Converter →</Link></p>
       </div>
+      <Footer />
     </>
   );
 }
