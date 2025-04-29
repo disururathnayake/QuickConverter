@@ -13,6 +13,7 @@ import Pdftojpg from "./Pdftojpg.jsx";
 import Jpgtopdf from "./Jpgtopdf.jsx";
 import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import TermsOfService from "./TermsOfService.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./Pdftoword.css";
 
@@ -35,5 +36,6 @@ root.render(
       <Route path="/terms-of-service" element={<TermsOfService />} />
 
     </Routes>
+    <Analytics />
   </BrowserRouter>
 );
