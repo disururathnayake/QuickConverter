@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import pdfToWordImage from "./assets/pdf-to-word.png";
-import wordtopdf from "./assets/word-to-pdf.png";
-import mergepdf from "./assets/merge-pdf.png";
-import splitpdf from "./assets/split-pdf.png";
-import compresspdf from "./assets/compress-pdf.png";
-import summarizepdf from "./assets/summarize-pdf.png";
-import jpgtopdf from "./assets/jpg-to-pdf.png";
-import pdftojpg from "./assets/pdf-to-jpg.png";
+import pdfToWordImage from "./assets/pdf-to-word.webp";
+import wordtopdf from "./assets/word-to-pdf.webp";
+import mergepdf from "./assets/merge-pdf.webp";
+import splitpdf from "./assets/split-pdf.webp";
+import compresspdf from "./assets/compress-pdf.webp";
+import summarizepdf from "./assets/summarize-pdf.webp";
+import jpgtopdf from "./assets/jpg-to-pdf.webp";
+import pdftojpg from "./assets/pdf-to-jpg.webp";
 import Navbar from "./templates/Navbar.jsx";
 import usePageTitle from "./hooks/usePageTitle";
 import { Helmet } from "react-helmet";
@@ -51,7 +51,7 @@ function Home() {
     {
       name: "Compress PDF Files",
       description: "Compress your PDF file size quickly and easily for free.",
-      image: compresspdf, // Import a new image like compress-pdf.png
+      image: compresspdf, // Import a new image like compress-pdf.webp
       href: "/compress-pdf",
       alt: "Compress PDF Files Icon",
     },

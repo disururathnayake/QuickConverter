@@ -4,7 +4,7 @@ import "./Splitpdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
-import splitGuideImg from "./assets/split-guide.png";
+import splitGuideImg from "./assets/split-guide.webp";
 import { Link } from "react-router-dom";
 import FAQAccordion from "./templates/FAQAccordion";
 import splitPdfFaqSchema from "./schemas/splitpdf-faq-schema";

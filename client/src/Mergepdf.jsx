@@ -6,7 +6,7 @@ import "./Mergepdf.css";
 import usePageTitle from "./hooks/usePageTitle";
 import { API_BASE_URL } from "./config";
 import { Helmet } from "react-helmet";
-import mergeGuideImg from "./assets/merge-guide.png";
+import mergeGuideImg from "./assets/merge-guide.webp";
 import { Link } from "react-router-dom";
 import mergePdfFaqSchema from "./schemas/mergepdf-faq-schema";
 import Footer from "./templates/footer.jsx";
