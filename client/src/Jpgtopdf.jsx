@@ -66,13 +66,13 @@ function JpgToPdf() {
       <Helmet>
         <title>Convert JPG Images to PDF Fast & Free | Quick Converter</title>
         <meta
-          name="description"
-          content="Merge your JPG images into a professional PDF file instantly. 100% free, no signup needed. Start converting now!"
-        />
-        <meta
-          name="keywords"
-          content="jpg to pdf, merge images to pdf, image to pdf converter, free jpg to pdf"
-        />
+  name="description"
+  content="Easily merge JPG images into a single PDF file. Free online JPG to PDF converter with no signup required. Fast, secure, and simple!"
+/>
+<meta
+  name="keywords"
+  content="merge jpg to pdf, jpg to pdf combiner, jpg merge pdf, image to pdf, convert jpg to pdf, free jpg to pdf converter"
+/>
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://quickconverter.pro/jpg-to-pdf" />
 
