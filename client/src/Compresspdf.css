@@ -103,6 +103,18 @@
     margin: 0 auto;
     line-height: 1.5; /* slightly tighter lines */
   }
+
+  .compression-select {
+    margin-top: 1rem;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  
   
   /* FAQ section already in your main CSS. */
   

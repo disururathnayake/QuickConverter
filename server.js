@@ -251,9 +251,15 @@ function parsePageInput(input, maxPage) {
 app.post("/compress-pdf", upload.single("file"), async (req, res) => {
   const filePath = req.file.path;
   const compressedPath = path.join(__dirname, "uploads", `compressed-${Date.now()}.pdf`);
+  const level = req.body.compressionLevel || "default";
+
+  let pdfSetting = "/ebook";
+  if (level === "minimal") pdfSetting = "/printer";
+  else if (level === "medium") pdfSetting = "/ebook";
+  else if (level === "maximum") pdfSetting = "/screen";
 
   try {
-    const command = `${ghostscriptCmd} -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${compressedPath}" "${filePath}"`;
+    const command = `${ghostscriptCmd} -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=${pdfSetting} -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${compressedPath}" "${filePath}"`;
 
     exec(command, (error) => {
       if (error) {
@@ -267,7 +273,6 @@ app.post("/compress-pdf", upload.single("file"), async (req, res) => {
         fs.unlinkSync(compressedPath);
       });
     });
-
   } catch (err) {
     console.error("Compress PDF error:", err.message);
     fs.unlinkSync(filePath);

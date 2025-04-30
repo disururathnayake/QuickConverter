@@ -10,6 +10,7 @@ import Footer from "./templates/footer.jsx";
 
 function Compresspdf() {
   const [file, setFile] = useState(null);
+  const [compressionLevel, setCompressionLevel] = useState("default");
   const [downloadLink, setDownloadLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -24,32 +25,27 @@ function Compresspdf() {
 
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("compressionLevel", compressionLevel);
 
     setLoading(true);
     setProgress(0);
     setError("");
 
-    let intervalDelay = 600; // default slower speed
+    let intervalDelay = 600;
+    if (file.size < 1 * 1024 * 1024) intervalDelay = 350;
+    else if (file.size < 5 * 1024 * 1024) intervalDelay = 500;
+    else if (file.size < 15 * 1024 * 1024) intervalDelay = 700;
+    else intervalDelay = 900;
 
-    if (file.size < 1 * 1024 * 1024) {
-      intervalDelay = 350; // <1MB file (faster, still realistic)
-    } else if (file.size < 5 * 1024 * 1024) {
-      intervalDelay = 500; // 1-5MB file (slower)
-    } else if (file.size < 15 * 1024 * 1024) {
-      intervalDelay = 700; // 5-15MB file
-    } else {
-      intervalDelay = 900; // 15MB+ file (very slow)
-    }
-
-  const interval = setInterval(() => {
-    setProgress(prev => {
-      if (prev >= 99) {
-        clearInterval(interval);
-        return 99;
-      }
-      return prev + 1;
-    });
-  }, intervalDelay);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 99) {
+          clearInterval(interval);
+          return 99;
+        }
+        return prev + 1;
+      });
+    }, intervalDelay);
 
     const res = await fetch(`${API_BASE_URL}/compress-pdf`, {
       method: "POST",
@@ -74,7 +70,7 @@ function Compresspdf() {
   return (
     <>
       <Helmet>
-      <title>Compress PDF Files Online - Reduce Size Fast | Quick Converter</title>
+        <title>Compress PDF Files Online - Reduce Size Fast | Quick Converter</title>
         <meta
           name="description"
           content="Easily reduce the size of your PDF files with Quick Converter. Fast, free, and secure online PDF compression."
@@ -85,7 +81,6 @@ function Compresspdf() {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://quickconverter.pro/compress-pdf" />
-        {/* WebApplication Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -97,47 +92,49 @@ function Compresspdf() {
             "offers": {
               "@type": "Offer",
               "price": "0",
-              "priceCurrency": "USD"
-            }
+              "priceCurrency": "USD",
+            },
           })}
         </script>
-        {/* FAQ Schema */}
         <script type="application/ld+json">
           {JSON.stringify(compressPdfFaqSchema)}
         </script>
-
         <script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://quickconverter.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Compress PDF",
-      "item": "https://quickconverter.pro/compress-pdf"
-    }
-  ]
-})}
-</script>
-
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://quickconverter.pro/",
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Compress PDF",
+                "item": "https://quickconverter.pro/compress-pdf",
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <Navbar />
 
       <div className="compresspdf-container">
-      <div className="page-header">
-  <h1 className="page-title">Compress and Shrink PDF Files Online Instantly</h1>
-  <p className="page-subtitle">
-    Quickly compress PDF files online with Quick Converter. Our free tool helps you shrink large PDFs without losing quality, optimize PDF files for faster uploads, and reduce file sizes for email or web sharing. No signup or installation needed — just upload, compress, and download!
-  </p>
-</div><form onSubmit={handleSubmit} className="compresspdf-form">
+        <div className="page-header">
+          <h1 className="page-title">Compress and Shrink PDF Files Online Instantly</h1>
+          <p className="page-subtitle">
+            Quickly compress PDF files online with Quick Converter. Our free tool helps you shrink
+            large PDFs without losing quality, optimize PDF files for faster uploads, and reduce
+            file sizes for email or web sharing. No signup or installation needed — just upload,
+            compress, and download!
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="compresspdf-form">
           <div className="upload-section">
             <label className="upload-box">
               <input
@@ -162,6 +159,17 @@ function Compresspdf() {
                 <span>📄 Click to upload a PDF file</span>
               )}
             </label>
+
+            <select
+              className="compression-select"
+              value={compressionLevel}
+              onChange={(e) => setCompressionLevel(e.target.value)}
+            >
+              <option value="default">Auto</option>
+              <option value="minimal">Minimal</option>
+              <option value="maximum">Maximum</option>
+            </select>
+
 
             {error && <p className="error-message">{error}</p>}
 
@@ -191,36 +199,42 @@ function Compresspdf() {
           </a>
         )}
       </div>
+
       <div className="tool-intro">
-  <h2>Why Compress PDF Files?</h2>
-  <p>
-    Large PDF files can be slow to upload and share. Compressing PDFs reduces file size without losing quality, making them faster to email, upload, and store. Our tool helps you optimize documents for easy sharing while keeping them crisp and clear.
-  </p>
-</div>
+        <h2>Why Compress PDF Files?</h2>
+        <p>
+          Large PDF files can be slow to upload and share. Compressing PDFs reduces file size
+          without losing quality, making them faster to email, upload, and store. Our tool helps you
+          optimize documents for easy sharing while keeping them crisp and clear.
+        </p>
+      </div>
 
       <FAQAccordion
         faqs={[
           {
             question: "Can I compress multiple PDFs at once?",
-            answer: "Currently, you can compress one PDF at a time for best performance and quality."
+            answer: "Currently, you can compress one PDF at a time for best performance and quality.",
           },
           {
             question: "Is PDF compression free?",
-            answer: "Yes, our PDF compression tool is completely free and does not require any sign-up."
+            answer: "Yes, our PDF compression tool is completely free and does not require any sign-up.",
           },
           {
             question: "Will my PDF lose quality after compression?",
-            answer: "We optimize your PDF file size while maintaining good readability and visual quality."
-          }
+            answer: "We optimize your PDF file size while maintaining good readability and visual quality.",
+          },
         ]}
       />
 
       <div className="internal-link-box">
         <p>
           Need to split your PDF after compression?{" "}
-          <Link to="/split-pdf" className="internal-link">Try our Split PDF tool →</Link>
+          <Link to="/split-pdf" className="internal-link">
+            Try our Split PDF tool →
+          </Link>
         </p>
       </div>
+
       <Footer />
     </>
   );

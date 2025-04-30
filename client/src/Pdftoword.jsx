@@ -59,7 +59,7 @@ function Pdftoword() {
           content="pdf to word, convert pdf to word, free pdf converter, online pdf to word tool, quick converter"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.quickconverter.pro/pdf-to-word" />
+        <link rel="canonical" href="https://quickconverter.pro/pdf-to-word" />
         <script type="application/ld+json">
           {`
     {
