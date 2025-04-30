@@ -16,6 +16,8 @@ import compresspdf from "./assets/compress-pdf.webp";
 import summarizepdf from "./assets/summarize-pdf.webp";
 import jpgtopdf from "./assets/jpg-to-pdf.webp";
 import pdftojpg from "./assets/pdf-to-jpg.webp";
+import removepages from "./assets/remove-pages.webp";
+
 
 function Home() {
   const categorizedTools = {
@@ -41,6 +43,13 @@ function Home() {
         href: "/compress-pdf",
         alt: "Compress PDF Icon",
       },
+      {
+        name: "Remove Pages",
+        description: "Easily delete unwanted pages from your PDF file online. Fast, free, and secure.",
+        image: removepages,
+        href: "/remove-pages",
+        alt: "Remove Pages from PDF Icon",
+      }
     ],
 
     "Convert to PDF": [

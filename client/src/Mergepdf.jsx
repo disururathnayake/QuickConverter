@@ -277,8 +277,8 @@ function Mergepdf() {
 
             <div className="internal-link-box">
   <p>
-    Need to split PDFs after merging?{" "}
-    <Link to="/split-pdf" className="internal-link">Try our Split PDF Tool →</Link>
+    Need to Remove pages after merging?{" "}
+    <Link to="/remove-pages" className="internal-link">Try our PDF Page Remover Tool →</Link>
   </p>
 </div>
 <Footer />

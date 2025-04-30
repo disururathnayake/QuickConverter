@@ -18,9 +18,12 @@ function Removepages() {
   const [selectedPages, setSelectedPages] = useState([]);
   const [downloadLink, setDownloadLink] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingPreview, setLoadingPreview] = useState(false);
+  const [processingText, setProcessingText] = useState("");
   const fileReaderRef = useRef(null);
 
   const loadPdfPages = async (arrayBuffer) => {
+    setLoadingPreview(true);
     const pdf = await getDocument({ data: arrayBuffer }).promise;
     const numPages = pdf.numPages;
     const pages = [];
@@ -40,6 +43,7 @@ function Removepages() {
     }
 
     setPdfPages(pages);
+    setLoadingPreview(false);
   };
 
   const handleFileChange = (e) => {
@@ -65,6 +69,7 @@ function Removepages() {
     if (!file || selectedPages.length === 0) return;
 
     setLoading(true);
+    setProcessingText("Processing your PDF. Please wait...");
     const formData = new FormData();
     formData.append("pdf", file);
     formData.append("pages", selectedPages.join(","));
@@ -86,6 +91,7 @@ function Removepages() {
       alert("❌ Failed to remove pages.");
     } finally {
       setLoading(false);
+      setProcessingText("");
     }
   };
 
@@ -138,11 +144,9 @@ function Removepages() {
             ]
           })}
         </script>
-
         <script type="application/ld+json">
-                  {JSON.stringify(removePagesFaqSchema)}
-                </script>
-
+          {JSON.stringify(removePagesFaqSchema)}
+        </script>
       </Helmet>
 
       <Navbar />
@@ -158,6 +162,13 @@ function Removepages() {
           <input type="file" accept="application/pdf" onChange={handleFileChange} />
           {file ? `✅ ${file.name}` : "📄 Click to upload a PDF file"}
         </label>
+
+        {loadingPreview && (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+            <p className="spinner-text">Loading PDF preview...</p>
+          </div>
+        )}
 
         <div className="page-preview-container">
           {pdfPages.map((p) => (
@@ -175,7 +186,15 @@ function Removepages() {
         <button onClick={handleSubmit} disabled={loading}>
           {loading ? "Processing..." : "Remove Selected Pages"}
         </button>
-          <br></br>
+
+        {processingText && (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+            <p className="spinner-text"></p>
+          </div>
+        )}
+
+        <br />
         {downloadLink && (
           <a href={downloadLink} download="removed.pdf" className="download-link">
             ⬇ Download Your File

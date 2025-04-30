@@ -31,6 +31,7 @@ function Navbar() {
             <Link to="/merge-pdf" onClick={() => setIsOpen(false)}>Merge PDF</Link>
             <Link to="/split-pdf" onClick={() => setIsOpen(false)}>Split PDF</Link>
             <Link to="/compress-pdf" onClick={() => setIsOpen(false)}>Compress PDF</Link>
+            <Link to="/remove-pages" onClick={() => setIsOpen(false)}>Remove Pages</Link>
           </div>
         </div>
 
