@@ -61,6 +61,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] === 'http') {
+    return res.redirect(301, `https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
+
 app.post("/pdf-to-word", upload.single("file"), async (req, res) => {
   const filePath = req.file.path;
   const fileName = req.file.originalname;
