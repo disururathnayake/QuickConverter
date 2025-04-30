@@ -52,6 +52,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+
 app.use((req, res, next) => {
   if (req.headers.host && req.headers.host.startsWith('www.')) {
     const newUrl = req.protocol + '://' + req.headers.host.slice(4) + req.originalUrl;
@@ -493,6 +494,51 @@ app.post("/jpg-to-pdf", upload.array("files", 20), async (req, res) => {
   } catch (err) {
     console.error("JPG to PDF error:", err.message);
     res.status(500).send("Failed to create PDF from JPGs.");
+  }
+});
+
+app.post("/remove-pages", upload.single("pdf"), async (req, res) => {
+  try {
+    const pagesParam = req.body.pages;
+    const pagesToRemove = [];
+
+    pagesParam.split(",").forEach((part) => {
+      if (part.includes("-")) {
+        const [start, end] = part.split("-").map(Number);
+        for (let i = start; i <= end; i++) pagesToRemove.push(i - 1);
+      } else {
+        pagesToRemove.push(Number(part) - 1);
+      }
+    });
+
+    const existingPdfBytes = fs.readFileSync(req.file.path);
+    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+    const totalPages = pdfDoc.getPageCount();
+
+    const pagesToKeep = [];
+    for (let i = 0; i < totalPages; i++) {
+      if (!pagesToRemove.includes(i)) pagesToKeep.push(i);
+    }
+
+    const newPdf = await PDFDocument.create();
+    const copiedPages = await newPdf.copyPages(pdfDoc, pagesToKeep);
+    copiedPages.forEach((page) => newPdf.addPage(page));
+
+    const pdfBytes = await newPdf.save();
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "attachment; filename=removed.pdf",
+      "Content-Length": pdfBytes.length,
+    });
+
+    res.send(Buffer.from(pdfBytes));
+
+    fs.unlinkSync(req.file.path); // cleanup
+
+  } catch (err) {
+    console.error("Remove Pages Error:", err);
+    res.status(500).send("Error processing PDF.");
   }
 });
 
