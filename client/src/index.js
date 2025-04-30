@@ -13,6 +13,7 @@ import Pdftojpg from "./Pdftojpg.jsx";
 import Jpgtopdf from "./Jpgtopdf.jsx";
 import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import TermsOfService from "./TermsOfService.jsx";
+import Removepages from "./Removepages.jsx";
 import { Analytics } from "@vercel/analytics/react";
 
 import "./Pdftoword.css";
@@ -34,6 +35,7 @@ root.render(
       <Route path="/jpg-to-pdf" element={<Jpgtopdf />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/remove-pages" element={<Removepages />} />
 
     </Routes>
     <Analytics />
