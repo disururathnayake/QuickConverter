@@ -1,3 +1,4 @@
+// Navbar.jsx (Fixed dropdown hover issue)
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
@@ -5,8 +6,12 @@ import "./Navbar.css";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -14,20 +19,49 @@ function Navbar() {
       <div className="nav-brand">
         <Link to="/" className="nav-brand-link">Quick Converter</Link>
       </div>
-      <div className="hamburger" onClick={toggleMenu}>
-        ☰
-      </div>
+
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>☰</div>
+
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
-        <Link to="/pdf-to-word" onClick={toggleMenu}>PDF to Word</Link>
-        <Link to="/word-to-pdf" onClick={toggleMenu}>Word to PDF</Link>
-        <Link to="/merge-pdf" onClick={toggleMenu}>Merge PDF</Link>
-        <Link to="/split-pdf" onClick={toggleMenu}>Split PDF</Link>
-        <Link to="/compress-pdf" onClick={toggleMenu}>Compress PDF</Link>
-        <Link to="/summarize-pdf" className="ai-highlight" onClick={toggleMenu}>
-          Summarize PDF <span className="ai-icon" data-tooltip="Powered by AI">✨</span>
-        </Link>
-        <Link to="/pdf-to-jpg" onClick={toggleMenu}>PDF to JPG</Link>
-        <Link to="/jpg-to-pdf" onClick={toggleMenu}>JPG to PDF</Link>
+        <div className="dropdown">
+          <div className="dropdown-toggle" onClick={(e) => { e.stopPropagation(); scrollToSection("basic-pdf-operations"); }}>
+            <span className="dropdown-title">Basic PDF Operations</span>
+          </div>
+          <div className="dropdown-content">
+            <Link to="/merge-pdf" onClick={() => setIsOpen(false)}>Merge PDF</Link>
+            <Link to="/split-pdf" onClick={() => setIsOpen(false)}>Split PDF</Link>
+            <Link to="/compress-pdf" onClick={() => setIsOpen(false)}>Compress PDF</Link>
+          </div>
+        </div>
+
+        <div className="dropdown">
+          <div className="dropdown-toggle" onClick={(e) => { e.stopPropagation(); scrollToSection("ai-tools"); }}>
+            <span className="dropdown-title">AI Tools</span>
+          </div>
+          <div className="dropdown-content">
+            <Link to="/summarize-pdf" onClick={() => setIsOpen(false)}>Summarize PDF</Link>
+          </div>
+        </div>
+
+        <div className="dropdown">
+          <div className="dropdown-toggle" onClick={(e) => { e.stopPropagation(); scrollToSection("convert-to-pdf"); }}>
+            <span className="dropdown-title">Convert to PDF</span>
+          </div>
+          <div className="dropdown-content">
+            <Link to="/word-to-pdf" onClick={() => setIsOpen(false)}>Word to PDF</Link>
+            <Link to="/jpg-to-pdf" onClick={() => setIsOpen(false)}>JPG to PDF</Link>
+          </div>
+        </div>
+
+        <div className="dropdown">
+          <div className="dropdown-toggle" onClick={(e) => { e.stopPropagation(); scrollToSection("convert-from-pdf"); }}>
+            <span className="dropdown-title">Convert from PDF</span>
+          </div>
+          <div className="dropdown-content">
+            <Link to="/pdf-to-word" onClick={() => setIsOpen(false)}>PDF to Word</Link>
+            <Link to="/pdf-to-jpg" onClick={() => setIsOpen(false)}>PDF to JPG</Link>
+          </div>
+        </div>
       </div>
     </nav>
   );

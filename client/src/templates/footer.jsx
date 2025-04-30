@@ -1,31 +1,49 @@
-// Footer.jsx
+// Footer.jsx (Redesigned - Categorized)
 import React from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
+import logo from "../assets/logo.webp";
 
 function Footer() {
     return (
         <footer className="site-footer">
-            <div className="footer-content">
-                <div className="footer-links">
-                    <Link to="/pdf-to-word" className="footer-link">PDF to Word</Link>
-                    <Link to="/word-to-pdf" className="footer-link">Word to PDF</Link>
-                    <Link to="/merge-pdf" className="footer-link">Merge PDF</Link>
-                    <Link to="/split-pdf" className="footer-link">Split PDF</Link>
-                    <Link to="/compress-pdf" className="footer-link">Compress PDF</Link>
-                    <Link to="/summarize-pdf" className="footer-link">Summarize PDF</Link>
-                    <Link to="/pdf-to-jpg" className="footer-link">PDF to JPG</Link>
-                    <Link to="/jpg-to-pdf" className="footer-link">JPG to PDF</Link>
+            <div className="footer-grid">
+                <div className="footer-brand">
+                    <img src={logo} alt="Quick Converter Logo" />
+                    
                 </div>
 
+                <div className="footer-section">
+                    <h3>Basic PDF Operations</h3>
+                    <Link to="/merge-pdf">Merge PDF</Link>
+                    <Link to="/split-pdf">Split PDF</Link>
+                    <Link to="/compress-pdf">Compress PDF</Link>
+                </div>
+
+                <div className="footer-section">
+                    <h3>Convert to PDF</h3>
+                    <Link to="/word-to-pdf">Word to PDF</Link>
+                    <Link to="/jpg-to-pdf">JPG to PDF</Link>
+                </div>
+
+                <div className="footer-section">
+                    <h3>Convert from PDF</h3>
+                    <Link to="/pdf-to-word">PDF to Word</Link>
+                    <Link to="/pdf-to-jpg">PDF to JPG</Link>
+                </div>
+
+                <div className="footer-section">
+                    <h3>AI Tools</h3>
+                    <Link to="/summarize-pdf">Summarize PDF</Link>
+                </div>
+            </div>
+
+            <div className="footer-bottom">
                 <div className="footer-policies">
-                    <Link to="/privacy-policy" className="footer-policy-link">Privacy Policy</Link>
-                    <Link to="/terms-of-service" className="footer-policy-link">Terms of Service</Link>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="/terms-of-service">Terms of Service</Link>
                 </div>
-
-                <p className="footer-copy">
-                    © {new Date().getFullYear()} Quick Converter. All rights reserved.
-                </p>
+                <p className="footer-copy">© {new Date().getFullYear()} Quick Converter. All rights reserved.</p>
             </div>
         </footer>
     );

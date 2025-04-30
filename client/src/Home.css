@@ -34,7 +34,7 @@ body {
   color: white;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 3rem 2rem 1rem;
@@ -53,86 +53,84 @@ body {
   color: #475569;
 }
 
-/* Tools Grid */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+/* Section Container */
+.tool-section {
   max-width: 1200px;
-  margin: auto;
+  margin: 60px auto 0;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-/* Tool Card */
+/* Section Spacing */
+
+
+/* Section Heading */
+.tools-heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: left;
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+
+
+/* Tools Grid Layout */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Tool Cards */
 .tool-card-link {
   text-decoration: none;
   color: inherit;
 }
 
 .tool-card {
-  background: white;
+  background-color: #fff;
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 280px; /* Set fixed height */
+  transition: all 0.3s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .tool-card-link:hover .tool-card {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .tool-image {
-  width: 128px;
-  height: 128px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 1rem;
 }
 
 .tool-card h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
   color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
 .tool-card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #475569;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
-/* Heading before tools */
-.tools-heading {
-  font-size: 26px;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Tool Link (button) - not needed anymore */
-.tool-link {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.tool-link:hover {
-  background-color: #2563eb;
-}
+/* FAQ Section */
 .faq-section {
   max-width: 800px;
   margin: 3rem auto;
@@ -145,5 +143,3 @@ body {
   margin-bottom: 2rem;
   color: #1f2937;
 }
-
-
