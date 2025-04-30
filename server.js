@@ -550,6 +550,10 @@ app.post("/remove-pages", upload.single("pdf"), async (req, res) => {
 });
 
 
+app.use((req, res) => {
+  res.redirect(301, 'https://quickconverter.pro/');
+});
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
