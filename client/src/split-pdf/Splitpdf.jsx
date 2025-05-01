@@ -52,7 +52,7 @@ function Splitpdf() {
   return (
     <>
       <Helmet>
-      <title>Split PDF Pages - Extract and Download Instantly | Quick Converter</title>
+        <title>Split PDF Pages - Extract and Download Instantly | Quick Converter</title>
 
         <meta
           name="description"
@@ -84,25 +84,25 @@ function Splitpdf() {
         <script type="application/ld+json">{JSON.stringify(splitPdfFaqSchema)}</script>
 
         <script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://quickconverter.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Split PDF",
-      "item": "https://quickconverter.pro/split-pdf"
-    }
-  ]
-})}
-</script>
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://quickconverter.pro/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Split PDF",
+                "item": "https://quickconverter.pro/split-pdf"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
 
@@ -110,10 +110,13 @@ function Splitpdf() {
 
       <div className="app-container">
         <h1>Split PDF</h1>
-
+        <p className="page-subtitle">
+          Easily split PDF files online with Quick Converter. Our free tool lets you extract specific pages or divide large PDFs into smaller parts for faster sharing, better organization, and simplified document management. No signup needed — just upload, select pages, and split!
+        </p>
+        <br></br>
         <form onSubmit={handleSubmit} className="upload-form">
           <div className="upload-section">
-            <label className="custom-upload">
+            <label className="upload-box">
               <input
                 type="file"
                 accept="application/pdf"
@@ -130,10 +133,7 @@ function Splitpdf() {
                   setError("");
                 }}
               />
-              <div className="upload-circle">
-                <span className="plus-icon">+</span>
-              </div>
-              <p>{file ? `✅ ${file.name}` : "Upload your file"}</p>
+              <p>{file ? `✅ ${file.name}` : "📄 Click to Upload your file"}</p>
             </label>
 
             <input
@@ -198,36 +198,36 @@ function Splitpdf() {
         </div>
       </section>
       <div className="tool-intro">
-  <h2>Why Split PDF Files?</h2>
-  <p>
-    Sometimes you don't need an entire PDF, just specific pages. Our PDF splitter lets you quickly extract only the sections you need, saving time and reducing file size. Perfect for editing, sharing, or reusing parts of larger documents.
-  </p>
-</div>
+        <h2>Why Split PDF Files?</h2>
+        <p>
+          Sometimes you don't need an entire PDF, just specific pages. Our PDF splitter lets you quickly extract only the sections you need, saving time and reducing file size. Perfect for editing, sharing, or reusing parts of larger documents.
+        </p>
+      </div>
 
       <FAQAccordion
-  faqs={[
-    {
-      question: "Can I split multiple pages at once?",
-      answer: "Yes, you can select multiple pages or page ranges like 2-4,6,8-10 to split."
-    },
-    {
-      question: "Will splitting a PDF change the original file?",
-      answer: "No, your original file remains unchanged. You download a new file with selected pages."
-    },
-    {
-      question: "Is there a maximum file size for splitting?",
-      answer: "We recommend uploading PDFs smaller than 100MB for best performance."
-    }
-  ]}
-/>
+        faqs={[
+          {
+            question: "Can I split multiple pages at once?",
+            answer: "Yes, you can select multiple pages or page ranges like 2-4,6,8-10 to split."
+          },
+          {
+            question: "Will splitting a PDF change the original file?",
+            answer: "No, your original file remains unchanged. You download a new file with selected pages."
+          },
+          {
+            question: "Is there a maximum file size for splitting?",
+            answer: "We recommend uploading PDFs smaller than 100MB for best performance."
+          }
+        ]}
+      />
 
       <div className="internal-link-box">
-  <p>
-    Want to combine your PDFs after splitting?{" "}
-    <Link to="/merge-pdf" className="internal-link">Try our Merge PDF tool →</Link>
-  </p>
-</div>
-<Footer />
+        <p>
+          Want to combine your PDFs after splitting?{" "}
+          <Link to="/merge-pdf" className="internal-link">Try our Merge PDF tool →</Link>
+        </p>
+      </div>
+      <Footer />
     </>
   );
 }

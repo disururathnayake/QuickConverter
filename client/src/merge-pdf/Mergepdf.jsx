@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Navbar from "../templates/Navbar.jsx";
 import FAQAccordion from "../templates/FAQAccordion.jsx";
@@ -13,13 +13,14 @@ import Footer from "../templates/footer.jsx";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);
-    const [downloadLink, setDownloadLink] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [isDraggingOver, setIsDraggingOver] = useState(false);
+    const fileInputRef = useRef();
 
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
-        if (selectedFiles.length > 10) {
+        if (selectedFiles.length + files.length > 10) {
             setError("❌ You can upload up to 10 PDF files.");
             return;
         }
@@ -30,7 +31,7 @@ function Mergepdf() {
             return;
         }
 
-        setFiles(selectedFiles);
+        setFiles(prev => [...prev, ...selectedFiles]);
         setError("");
     };
 
@@ -46,6 +47,22 @@ function Mergepdf() {
         const [moved] = reordered.splice(result.source.index, 1);
         reordered.splice(result.destination.index, 0, moved);
         setFiles(reordered);
+    };
+
+    const handleDropUpload = (e) => {
+        e.preventDefault();
+        setIsDraggingOver(false);
+
+        const droppedFiles = Array.from(e.dataTransfer.files);
+        const validPDFs = droppedFiles.filter(file => file.type === "application/pdf");
+
+        if (files.length + validPDFs.length > 10) {
+            setError("❌ You can upload up to 10 PDF files.");
+            return;
+        }
+
+        setFiles(prev => [...prev, ...validPDFs]);
+        setError("");
     };
 
     const handleSubmit = async (e) => {
@@ -72,24 +89,18 @@ function Mergepdf() {
             return;
         }
 
-        // Convert to blob
         const blob = await res.blob();
         const url = window.URL.createObjectURL(blob);
-
-        // Auto-trigger download
         const a = document.createElement("a");
         a.href = url;
         a.download = "merged.pdf";
         document.body.appendChild(a);
         a.click();
         a.remove();
-
-        // Revoke blob URL to free memory
         setTimeout(() => window.URL.revokeObjectURL(url), 1000);
 
-        // ✅ Skip setting any downloadLink state
         setLoading(false);
-        setFiles([]); // optionally clear file list after
+        setFiles([]);
     };
 
     return (
@@ -125,66 +136,72 @@ function Mergepdf() {
                 </script>
 
                 <script type="application/ld+json">
-    {JSON.stringify(mergePdfFaqSchema)}
-  </script>
+                    {JSON.stringify(mergePdfFaqSchema)}
+                </script>
 
-  <script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://quickconverter.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Merge PDF",
-      "item": "https://quickconverter.pro/merge-pdf"
-    }
-  ]
-})}
-</script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://quickconverter.pro/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Merge PDF",
+                                "item": "https://quickconverter.pro/merge-pdf"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <Navbar />
             <div className="mergepdf-container">
                 <h1>Merge PDF Documents</h1>
+                <p className="page-subtitle">
+                    Easily merge multiple PDF files into one with Quick Converter. Our free online tool lets you combine PDFs quickly, maintain original formatting, and streamline your documents for sharing or archiving. No sign-up required — just upload, arrange, and merge!
+                </p>
+                <br></br>
                 <form onSubmit={handleSubmit} className="mergepdf-form">
-                    <div className="upload-section">
-                        <label className="custom-upload">
-                            <input
-                                type="file"
-                                accept="application/pdf"
-                                multiple
-                                onChange={handleFileChange}
-                                hidden
-                            />
-                            <div className="upload-circle">
-                                <span className="plus-icon">+</span>
-                            </div>
-                            <p>Upload or Drag & Drop your files</p>
-                        </label>
-
-                        {error && <p className="error-message">{error}</p>}
-
-                        <button type="submit" disabled={loading}>
-                            {loading ? "Merging..." : "Merge & Download"}
-                        </button>
+                    <div
+                        className={`upload-box ${isDraggingOver ? "dragging" : ""}`}
+                        onDragOver={(e) => { e.preventDefault(); setIsDraggingOver(true); }}
+                        onDragLeave={() => setIsDraggingOver(false)}
+                        onDrop={handleDropUpload}
+                        onClick={() => fileInputRef.current.click()}
+                    >
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept="application/pdf"
+                            multiple
+                            onChange={handleFileChange}
+                            hidden
+                        />
+                        {files.length > 0 ? (
+                            <span className="file-name">✅ {files.length} file(s) selected</span>
+                        ) : (
+                            <span>📄 Click or Drag & Drop up to 10 PDF files</span>
+                        )}
                     </div>
+                    <br></br>
+
+                    {error && <p className="error-message">{error}</p>}
+
+                    <button type="submit" disabled={loading}>
+                        {loading ? "Merging..." : "Merge & Download"}
+                    </button>
+
                     {loading && (
                         <div className="spinner-container">
                             <div className="spinner"></div>
                             <p className="spinner-text">Merging files...</p>
                         </div>
-                    )}
-
-                    {downloadLink && (
-                        <a href={downloadLink} download="merged.pdf" className="download-link">
-                            ⬇️ Download Merged PDF
-                        </a>
                     )}
                 </form>
 
@@ -252,36 +269,36 @@ function Mergepdf() {
                 </div>
             </section>
             <div className="tool-intro">
-  <h2>Why Merge Multiple PDFs?</h2>
-  <p>
-    Combining multiple PDFs into one organized document simplifies sharing and reading. Whether it's contracts, reports, or study materials, merging your files into a single PDF helps keep your information neat, accessible, and professional.
-  </p>
-</div>
+                <h2>Why Merge Multiple PDFs?</h2>
+                <p>
+                    Combining multiple PDFs into one organized document simplifies sharing and reading. Whether it's contracts, reports, or study materials, merging your files into a single PDF helps keep your information neat, accessible, and professional.
+                </p>
+            </div>
 
             <FAQAccordion
-  faqs={[
-    {
-      question: "How many PDFs can I merge at once?",
-      answer: "You can merge up to 10 PDF files at a time for best performance and speed."
-    },
-    {
-      question: "Is there a size limit for PDF merging?",
-      answer: "Each individual file should be under 100MB for smooth processing."
-    },
-    {
-      question: "Are my files safe after merging?",
-      answer: "Yes, all uploaded files are processed securely and automatically deleted after merging."
-    }
-  ]}
-/>
+                faqs={[
+                    {
+                        question: "How many PDFs can I merge at once?",
+                        answer: "You can merge up to 10 PDF files at a time for best performance and speed."
+                    },
+                    {
+                        question: "Is there a size limit for PDF merging?",
+                        answer: "Each individual file should be under 100MB for smooth processing."
+                    },
+                    {
+                        question: "Are my files safe after merging?",
+                        answer: "Yes, all uploaded files are processed securely and automatically deleted after merging."
+                    }
+                ]}
+            />
 
             <div className="internal-link-box">
-  <p>
-    Need to Remove pages after merging?{" "}
-    <Link to="/remove-pages" className="internal-link">Try our PDF Page Remover Tool →</Link>
-  </p>
-</div>
-<Footer />
+                <p>
+                    Need to Remove pages after merging?{" "}
+                    <Link to="/remove-pages" className="internal-link">Try our PDF Page Remover Tool →</Link>
+                </p>
+            </div>
+            <Footer />
         </>
     );
 }
