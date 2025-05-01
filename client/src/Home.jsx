@@ -124,6 +124,9 @@ function Home() {
           content="pdf to word, word to pdf, merge pdf, compress pdf, split pdf, unlock pdf, summarize pdf"
         />
         <link rel="canonical" href="https://quickconverter.pro/" />
+        <link rel="preload" as="image" href="/assets/logo.webp" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -153,8 +156,8 @@ function Home() {
             {tools.map((tool, index) => (
               <Link to={tool.href} className="tool-card-link" key={index}>
                 <div className="tool-card image-style">
-                  <img src={tool.image} alt={tool.alt} className="tool-image" />
-                  <h2>{tool.name}</h2>
+                  <img src={tool.image} alt={tool.alt} className="tool-image" loading="lazy" />
+                  <h3>{tool.name}</h3>
                   <p>{tool.description}</p>
                 </div>
               </Link>
