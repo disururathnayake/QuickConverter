@@ -31,6 +31,8 @@ function Footer() {
                     <h3>Convert from PDF</h3>
                     <Link to="/pdf-to-word">PDF to Word</Link>
                     <Link to="/pdf-to-jpg">PDF to JPG</Link>
+                    <Link to="/pdf-to-txt">PDF to TXT</Link>
+                    <Link to="/pdf-to-png">PDF to PNG</Link>
                 </div>
 
                 <div className="footer-section">

@@ -61,6 +61,8 @@ function Navbar() {
           <div className="dropdown-content">
             <Link to="/pdf-to-word" onClick={() => setIsOpen(false)}>PDF to Word</Link>
             <Link to="/pdf-to-jpg" onClick={() => setIsOpen(false)}>PDF to JPG</Link>
+            <Link to="/pdf-to-txt" onClick={() => setIsOpen(false)}>PDF to TXT</Link>
+            <Link to="/pdf-to-png" onClick={() => setIsOpen(false)}>PDF to PNG</Link>
           </div>
         </div>
       </div>

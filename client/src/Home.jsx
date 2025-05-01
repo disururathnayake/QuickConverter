@@ -17,6 +17,8 @@ import summarizepdf from "./assets/summarize-pdf.webp";
 import jpgtopdf from "./assets/jpg-to-pdf.webp";
 import pdftojpg from "./assets/pdf-to-jpg.webp";
 import removepages from "./assets/remove-pages.webp";
+import pdftopng from "./assets/pdf-to-png.webp";
+import pdftotxt from "./assets/pdf-to-txt.webp";
 
 
 function Home() {
@@ -82,6 +84,20 @@ function Home() {
         image: pdftojpg,
         href: "/pdf-to-jpg",
         alt: "PDF to JPG Icon",
+      },
+      {
+        name: "PDF to PNG",
+        description: "Convert PDF pages into high-quality PNG images. 100% free.",
+        image: pdftopng,
+        href: "/pdf-to-png",
+        alt: "PDF to PNG Icon",
+      },
+      {
+        name: "PDF to TXT",
+        description: "Extract raw text from any PDF — fast, free, and accurate.",
+        image: pdftotxt,
+        href: "/pdf-to-txt",
+        alt: "PDF to TXT Icon",
       },
     ],
     "AI Tools": [

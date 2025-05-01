@@ -16,6 +16,7 @@ const { OpenAI } = require("openai"); // Already imported, skip if already there
 const pdfParse = require('pdf-parse'); // NEW for summarizing PDFs
 const AiPDFDocument = require('pdfkit');
 
+
 const archiver = require("archiver");
 
 const { createCanvas } = require('canvas');
@@ -548,6 +549,72 @@ app.post("/remove-pages", upload.single("pdf"), async (req, res) => {
     res.status(500).send("Error processing PDF.");
   }
 });
+
+app.post("/pdf-to-png", upload.single("file"), async (req, res) => {
+  const filePath = req.file.path;
+  const outputFolder = path.join(__dirname, "uploads", `pngs-${Date.now()}`);
+
+  try {
+    fs.mkdirSync(outputFolder);
+    const data = new Uint8Array(fs.readFileSync(filePath));
+    const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
+    const numPages = pdfDocument.numPages;
+
+    for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+      const page = await pdfDocument.getPage(pageNum);
+      const viewport = page.getViewport({ scale: 2.0 });
+      const canvas = createCanvas(viewport.width, viewport.height);
+      const context = canvas.getContext('2d');
+
+      await page.render({ canvasContext: context, viewport }).promise;
+      const buffer = canvas.toBuffer('image/png');
+      fs.writeFileSync(path.join(outputFolder, `page-${pageNum}.png`), buffer);
+    }
+
+    const zipPath = path.join(__dirname, "uploads", `images-${Date.now()}.zip`);
+    const output = fs.createWriteStream(zipPath);
+    const archive = archiver('zip', { zlib: { level: 9 } });
+
+    archive.directory(outputFolder, false);
+    archive.pipe(output);
+    await archive.finalize();
+
+    output.on('close', () => {
+      res.download(zipPath, "converted-images.zip", () => {
+        fs.unlinkSync(filePath);
+        fs.unlinkSync(zipPath);
+        fs.rmSync(outputFolder, { recursive: true });
+      });
+    });
+
+  } catch (err) {
+    console.error("PDF to PNG error:", err.message);
+    res.status(500).send("Failed to convert PDF to PNG.");
+  }
+});
+
+app.post("/pdf-to-txt", upload.single("file"), async (req, res) => {
+  const filePath = req.file.path;
+
+  try {
+    const dataBuffer = fs.readFileSync(filePath);
+    const pdfData = await pdfParse(dataBuffer);
+    const outputPath = path.join(__dirname, "uploads", `text-${Date.now()}.txt`);
+
+    fs.writeFileSync(outputPath, pdfData.text);
+    res.download(outputPath, "converted.txt", () => {
+      fs.unlinkSync(filePath);
+      fs.unlinkSync(outputPath);
+    });
+
+  } catch (err) {
+    console.error("PDF to TXT error:", err.message);
+    res.status(500).send("Failed to extract text from PDF.");
+  }
+});
+
+
+
 
 
 app.use((req, res) => {

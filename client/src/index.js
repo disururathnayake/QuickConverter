@@ -15,6 +15,8 @@ import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import TermsOfService from "./TermsOfService.jsx";
 import Removepages from "./remove-pages/Removepages.jsx";
 import { Analytics } from "@vercel/analytics/react";
+import PdfToPng from "./pdf-to-png/Pdftopng.jsx";
+import PdfToTxt from "./pdf-to-txt/Pdftotxt.jsx";
 
 import "./pdf-to-word/Pdftoword.css";
 
@@ -36,6 +38,9 @@ root.render(
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/remove-pages" element={<Removepages />} />
+      <Route path="/pdf-to-png" element={<PdfToPng />} />
+      <Route path="/pdf-to-txt" element={<PdfToTxt />} />
+
 
     </Routes>
     <Analytics />
