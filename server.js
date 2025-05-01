@@ -28,7 +28,7 @@ const ghostscriptCmd = isWindows
   : "gs"; // for Linux servers like Render
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://quickconverter.pro', 'https://www.quickconverter.pro'],
+  origin: ['http://localhost:3000', 'https://quickconverter.pro', 'https://www.quickconverter.pro', 'https://quick-converter-five.vercel.app'],
   methods: ['GET', 'POST'],
   credentials: true
 }));
