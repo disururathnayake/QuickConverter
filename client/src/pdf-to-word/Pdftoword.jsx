@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./Pdftoword.css";
 import { Link } from "react-router-dom";
-import Navbar from "./templates/Navbar.jsx";
-import usePageTitle from "./hooks/usePageTitle";
-import { API_BASE_URL } from "./config";
+import Navbar from "../templates/Navbar.jsx";
+import { API_BASE_URL } from "../config.js";
 import { Helmet } from "react-helmet";
-import pdfToWordFaqSchema from "./schemas/pdftoword-faq-schema.js";
-import FAQAccordion from "./templates/FAQAccordion";
-import Footer from "./templates/footer.jsx";
+import pdfToWordFaqSchema from "../schemas/pdftoword-faq-schema.js";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
+import Footer from "../templates/footer.jsx";
 
 
 function Pdftoword() {

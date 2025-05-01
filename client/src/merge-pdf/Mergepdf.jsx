@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import Navbar from "./templates/Navbar";
-import FAQAccordion from "./templates/FAQAccordion";
+import Navbar from "../templates/Navbar.jsx";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
 import "./Mergepdf.css";
-import usePageTitle from "./hooks/usePageTitle";
-import { API_BASE_URL } from "./config";
+import usePageTitle from "../hooks/usePageTitle.js";
+import { API_BASE_URL } from "../config.js";
 import { Helmet } from "react-helmet";
-import mergeGuideImg from "./assets/merge-guide.webp";
+import mergeGuideImg from "../assets/merge-guide.webp";
 import { Link } from "react-router-dom";
-import mergePdfFaqSchema from "./schemas/mergepdf-faq-schema";
-import Footer from "./templates/footer.jsx";
+import mergePdfFaqSchema from "../schemas/mergepdf-faq-schema.js";
+import Footer from "../templates/footer.jsx";
 
 function Mergepdf() {
     const [files, setFiles] = useState([]);

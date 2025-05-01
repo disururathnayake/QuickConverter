@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Navbar from "./templates/Navbar";
+import Navbar from "../templates/Navbar.jsx";
 import "./Splitpdf.css";
-import usePageTitle from "./hooks/usePageTitle";
-import { API_BASE_URL } from "./config";
+import usePageTitle from "../hooks/usePageTitle.js";
+import { API_BASE_URL } from "../config.js";
 import { Helmet } from "react-helmet";
-import splitGuideImg from "./assets/split-guide.webp";
+import splitGuideImg from "../assets/split-guide.webp";
 import { Link } from "react-router-dom";
-import FAQAccordion from "./templates/FAQAccordion";
-import splitPdfFaqSchema from "./schemas/splitpdf-faq-schema";
-import Footer from "./templates/footer.jsx";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
+import splitPdfFaqSchema from "../schemas/splitpdf-faq-schema.js";
+import Footer from "../templates/footer.jsx";
 
 function Splitpdf() {
 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import Navbar from "./templates/Navbar.jsx";
-import FAQAccordion from "./templates/FAQAccordion.jsx";
+import Navbar from "../templates/Navbar.jsx";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
 import { Link } from "react-router-dom";
-import { API_BASE_URL } from "./config";
-import summarizepdfFaqSchema from "./schemas/summarizepdf-faq-schema.js"; 
+import { API_BASE_URL } from "../config.js";
+import summarizepdfFaqSchema from "../schemas/summarizepdf-faq-schema.js"; 
 import "./Summarizepdf.css";
-import Footer from "./templates/footer.jsx";
+import Footer from "../templates/footer.jsx";
 
 function Summarizepdf() {
   const [file, setFile] = useState(null);

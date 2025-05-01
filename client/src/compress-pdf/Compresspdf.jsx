@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import Navbar from "./templates/Navbar.jsx";
-import FAQAccordion from "./templates/FAQAccordion.jsx";
+import Navbar from "../templates/Navbar.jsx";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
 import { Link } from "react-router-dom";
-import { API_BASE_URL } from "./config";
+import { API_BASE_URL } from "../config.js";
 import "./Compresspdf.css";
-import compressPdfFaqSchema from "./schemas/compresspdf-faq-schema.js";
-import Footer from "./templates/footer.jsx";
+import compressPdfFaqSchema from "../schemas/compresspdf-faq-schema.js";
+import Footer from "../templates/footer.jsx";
 
 function Compresspdf() {
   const [file, setFile] = useState(null);

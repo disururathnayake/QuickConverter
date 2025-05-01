@@ -2,13 +2,13 @@ import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.js";
-import { API_BASE_URL } from "./config";
-import Navbar from "./templates/Navbar.jsx";
-import Footer from "./templates/footer.jsx";
-import FAQAccordion from "./templates/FAQAccordion";
+import { API_BASE_URL } from "../config.js";
+import Navbar from "../templates/Navbar.jsx";
+import Footer from "../templates/footer.jsx";
+import FAQAccordion from "../templates/FAQAccordion.jsx";
 import { Link } from "react-router-dom";
 import "./Removepages.css";
-import removePagesFaqSchema from "./schemas/remove-pages-faq-schema.js";
+import removePagesFaqSchema from "../schemas/remove-pages-faq-schema.js";
 
 GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js`;
 

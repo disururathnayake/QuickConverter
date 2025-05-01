@@ -2,21 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import PdfToWord from "./Pdftoword.jsx";
-import Wordtopdf from "./Wordtopdf.jsx";
-import Mergepdf from "./Mergepdf.jsx";
-import Splitpdf from "./Splitpdf.jsx";
+import PdfToWord from "./pdf-to-word/Pdftoword.jsx";
+import Wordtopdf from "./word-to-pdf/Wordtopdf.jsx";
+import Mergepdf from "./merge-pdf/Mergepdf.jsx";
+import Splitpdf from "./split-pdf/Splitpdf.jsx";
 import ScrollToTop from "./ScrollToTop";
-import Compresspdf from "./Compresspdf.jsx";
-import Summarizepdf from "./Summarizepdf.jsx";
-import Pdftojpg from "./Pdftojpg.jsx";
-import Jpgtopdf from "./Jpgtopdf.jsx";
+import Compresspdf from "./compress-pdf/Compresspdf.jsx";
+import Summarizepdf from "./summarize-pdf/Summarizepdf.jsx";
+import Pdftojpg from "./pdf-to-jpg/Pdftojpg.jsx";
+import Jpgtopdf from "./jpg-to-pdf/Jpgtopdf.jsx";
 import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import TermsOfService from "./TermsOfService.jsx";
-import Removepages from "./Removepages.jsx";
+import Removepages from "./remove-pages/Removepages.jsx";
 import { Analytics } from "@vercel/analytics/react";
 
-import "./Pdftoword.css";
+import "./pdf-to-word/Pdftoword.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
