@@ -196,9 +196,9 @@ function Pdftotxt() {
         ]}
       />
 
-      <div className="internal-link-box">
-        <p>Want more free tools? <Link to="/" className="internal-link">Explore Quick Converter →</Link></p>
-      </div>
+<div className="internal-link-box">
+  <p>Looking to convert your PDF into high-quality images? <Link to="/pdf-to-png" className="internal-link">Use our free PDF to PNG converter →</Link></p>
+</div>
       <Footer />
     </>
   );

@@ -199,9 +199,9 @@ function Pdftopng() {
         ]}
       />
 
-      <div className="internal-link-box">
-        <p>Want more free tools? <Link to="/" className="internal-link">Explore Quick Converter →</Link></p>
-      </div>
+<div className="internal-link-box">
+  <p>Need to extract text instead of images? <Link to="/pdf-to-txt" className="internal-link">Try our free PDF to TXT converter →</Link></p>
+</div>
 
       <Footer />
     </>
