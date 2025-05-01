@@ -1,5 +1,21 @@
 const express = require("express");
 const multer = require("multer");
+
+const fs = require("fs");
+const path = require("path");
+const { google } = require("googleapis");
+const { PDFDocument } = require("pdf-lib");
+require("dotenv").config();
+
+const app = express();
+const port = 5000;
+const { exec } = require('child_process');
+const isWindows = process.platform === "win32";
+
+const { OpenAI } = require("openai"); // Already imported, skip if already there
+const pdfParse = require('pdf-parse'); // NEW for summarizing PDFs
+const AiPDFDocument = require('pdfkit');
+
 const cors = require("cors");
 const allowedOrigins = [
   "http://localhost:3000",
@@ -18,20 +34,6 @@ app.use(cors({
   methods: ['GET', 'POST'],
   credentials: true,
 }));
-const fs = require("fs");
-const path = require("path");
-const { google } = require("googleapis");
-const { PDFDocument } = require("pdf-lib");
-require("dotenv").config();
-
-const app = express();
-const port = 5000;
-const { exec } = require('child_process');
-const isWindows = process.platform === "win32";
-
-const { OpenAI } = require("openai"); // Already imported, skip if already there
-const pdfParse = require('pdf-parse'); // NEW for summarizing PDFs
-const AiPDFDocument = require('pdfkit');
 
 
 const archiver = require("archiver");
