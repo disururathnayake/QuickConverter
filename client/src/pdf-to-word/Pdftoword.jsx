@@ -109,7 +109,7 @@ function Pdftoword() {
             <label className="upload-box">
               <input
                 type="file"
-                accept="application/pdf"
+                accept=".pdf,application/pdf"
                 onChange={(e) => {
                   const selectedFile = e.target.files[0];
                   if (selectedFile && selectedFile.type !== "application/pdf") {

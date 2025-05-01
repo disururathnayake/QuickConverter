@@ -159,7 +159,7 @@ function Removepages() {
         </div>
 
         <label className="upload-box">
-          <input type="file" accept="application/pdf" onChange={handleFileChange} />
+          <input type="file"  accept=".pdf,application/pdf" onChange={handleFileChange} />
           {file ? `✅ ${file.name}` : "📄 Click to upload a PDF file"}
         </label>
 

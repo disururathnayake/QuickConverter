@@ -178,7 +178,7 @@ function Mergepdf() {
                         <input
                             ref={fileInputRef}
                             type="file"
-                            accept="application/pdf"
+                            accept=".pdf,application/pdf"
                             multiple
                             onChange={handleFileChange}
                             hidden

@@ -119,7 +119,7 @@ function Splitpdf() {
             <label className="upload-box">
               <input
                 type="file"
-                accept="application/pdf"
+                accept=".pdf,application/pdf"
                 hidden
                 onChange={(e) => {
                   const selectedFile = e.target.files[0];
