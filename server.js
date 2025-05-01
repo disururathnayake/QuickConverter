@@ -1,6 +1,23 @@
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://quickconverter.pro",
+  "https://www.quickconverter.pro",
+  "https://quick-converter-five.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like curl or Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ['GET', 'POST'],
+  credentials: true,
+}));
 const fs = require("fs");
 const path = require("path");
 const { google } = require("googleapis");
@@ -27,11 +44,7 @@ const ghostscriptCmd = isWindows
   ? `"C:\\Program Files\\gs\\gs10.05.0\\bin\\gswin64c.exe"`
   : "gs"; // for Linux servers like Render
 
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://quickconverter.pro', 'https://www.quickconverter.pro', 'https://quick-converter-five.vercel.app'],
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+
 
 const upload = multer({ dest: "uploads/" });
 
