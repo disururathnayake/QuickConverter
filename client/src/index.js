@@ -31,13 +31,7 @@ const PrivacyPolicy = React.lazy(() => import("./PrivacyPolicy.jsx"));
 const TermsOfService = React.lazy(() => import("./TermsOfService.jsx"));
 const Removepages = React.lazy(() => import("./remove-pages/Removepages.jsx"));
 const PdfToPng = React.lazy(() => import("./pdf-to-png/Pdftopng.jsx"));
-const PdfToTxt = React.lazy(() =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(import("./pdf-to-txt/Pdftotxt.jsx"));
-    }, 1500);
-  })
-);
+const PdfToTxt = React.lazy(() => import("./pdf-to-txt/Pdftotxt.jsx"));
 
 import LoadingSpinner from "./LoadingSpinner";
 
