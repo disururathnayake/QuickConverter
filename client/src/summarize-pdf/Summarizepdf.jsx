@@ -125,7 +125,7 @@ function Summarizepdf() {
 
       <Navbar />
 
-      <div className="compresspdf-container">
+      <div className="mergepdf-container">
         <div className="page-header">
           <h1 className="page-title">Summarize Your PDF with AI Instantly</h1>
           <p className="page-subtitle">
@@ -133,7 +133,7 @@ function Summarizepdf() {
           </p>
         </div>
 
-        <form onSubmit={handleSummarize} className="compresspdf-form">
+        <form onSubmit={handleSummarize} className="mergepdf-form">
           <div className="upload-section">
             <label className="upload-box">
               <input

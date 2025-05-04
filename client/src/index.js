@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -32,6 +32,8 @@ const TermsOfService = React.lazy(() => import("./TermsOfService.jsx"));
 const Removepages = React.lazy(() => import("./remove-pages/Removepages.jsx"));
 const PdfToPng = React.lazy(() => import("./pdf-to-png/Pdftopng.jsx"));
 const PdfToTxt = React.lazy(() => import("./pdf-to-txt/Pdftotxt.jsx"));
+const BlogHome = React.lazy(() => import("./blog/BlogHome.jsx"));
+const BlogPost = React.lazy(() => import("./blog/BlogPost.jsx"));
 
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -56,6 +58,10 @@ root.render(
         <Route path="/remove-pages" element={<Removepages />} />
         <Route path="/pdf-to-png" element={<PdfToPng />} />
         <Route path="/pdf-to-txt" element={<PdfToTxt />} />
+        <Route path="/blog" element={<BlogHome />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </React.Suspense>
     <Analytics />

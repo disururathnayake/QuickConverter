@@ -150,7 +150,7 @@ function Removepages() {
       </Helmet>
 
       <Navbar />
-      <div className="remove-pdf-container">
+      <div className="mergepdf-container">
         <div className="page-header">
           <h1 className="page-title">Remove Pages from PDF</h1>
           <p className="page-subtitle">

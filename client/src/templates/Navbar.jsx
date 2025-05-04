@@ -65,6 +65,8 @@ function Navbar() {
             <Link to="/pdf-to-png" onClick={() => setIsOpen(false)}>PDF to PNG</Link>
           </div>
         </div>
+
+        <Link to="/blog" style={{ textDecoration: "none" }} className="dropdown-title" >Our Blog</Link>
       </div>
     </nav>
   );

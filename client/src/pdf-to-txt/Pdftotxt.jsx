@@ -116,7 +116,7 @@ function Pdftotxt() {
 
       <Navbar />
 
-      <div className="compresspdf-container">
+      <div className="mergepdf-container">
         <div className="page-header">
           <h1 className="page-title">Convert PDF to Text File (TXT)</h1>
           <p className="page-subtitle">
@@ -124,7 +124,7 @@ function Pdftotxt() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="compresspdf-form">
+        <form onSubmit={handleSubmit} className="mergepdf-form">
           <div className="upload-section">
             <label className="upload-box">
               <input
