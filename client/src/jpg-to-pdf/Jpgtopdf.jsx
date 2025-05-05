@@ -78,7 +78,7 @@ function JpgToPdf() {
   return (
     <>
       <Helmet>
-        <title>Convert JPG Images to PDF Fast & Free | Quick Converter</title>
+      <title>Merge JPG to PDF Online – No Signup, No Limits, 100% Free | Quick Converter</title>
         <meta name="description" content="Easily merge JPG images into a single PDF file. Free online JPG to PDF converter with no signup required. Fast, secure, and simple!" />
         <meta name="keywords" content="merge jpg to pdf, jpg to pdf combiner, jpg merge pdf, image to pdf, convert jpg to pdf, free jpg to pdf converter" />
         <meta name="robots" content="index, follow" />
@@ -130,9 +130,9 @@ function JpgToPdf() {
 
       <div className="mergepdf-container">
         <div className="page-header">
-          <h1 className="page-title">Convert JPG Images to PDF Instantly - Free & Secure</h1>
+        <h1 className="page-title">Merge JPG Images into a PDF – Free & Instant</h1>
           <p className="page-subtitle">
-            Easily combine your JPG images into a professional-looking PDF file. Free to use, no sign-up required. Upload multiple images and get your PDF instantly!
+          Easily convert your JPG or JPEG images into a single high-quality PDF. Just drag & drop your files, rearrange the order if needed, and download — no signup, no watermark, always free.
           </p>
         </div>
 
