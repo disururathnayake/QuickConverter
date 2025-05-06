@@ -64,6 +64,78 @@ function Editpdf() {
                 />
                 <link rel="canonical" href="https://quickconverter.pro/edit-pdf" />
                 <meta name="robots" content="index, follow" />
+
+                <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "Edit PDF Online",
+      url: "https://quickconverter.pro/edit-pdf",
+      applicationCategory: "Utility",
+      operatingSystem: "All",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    })}
+  </script>
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://quickconverter.pro/"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Edit PDF",
+          item: "https://quickconverter.pro/edit-pdf"
+        }
+      ]
+    })}
+
+
+  </script>
+
+  <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What editing features will be available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You'll be able to add text, draw, highlight, sign, and save PDFs — all in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it be free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, editing will be free and without watermark."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit PDFs on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the editor will be mobile-friendly."
+        }
+      }
+    ]
+  })}
+</script>
             </Helmet>
 
             <Navbar />
