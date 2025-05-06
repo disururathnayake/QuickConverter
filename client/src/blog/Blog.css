@@ -120,4 +120,20 @@
   .blog-post ol {
     margin-left: 1.5rem;
   }
+
+  .blog-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .blog-card {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .blog-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+  
   

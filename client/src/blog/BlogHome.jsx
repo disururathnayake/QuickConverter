@@ -35,17 +35,17 @@ function BlogHome() {
         <h1 className="blog-heading">Quick Converter Blog</h1>
         <div className="blog-grid">
           {blogPosts.map((post) => (
-            <article key={post.slug} className="blog-card">
-              <h2 className="blog-title">{post.title}</h2>
-              <p className="blog-excerpt">{post.excerpt}</p>
-              <Link
-                to={`/blog/${post.slug}`}
-                className="read-more"
-                aria-label={`Read more about ${post.title}`}
-              >
-                Read More →
-              </Link>
-            </article>
+            <Link
+              to={`/blog/${post.slug}`}
+              className="blog-card-link"
+              key={post.slug}
+            >
+              <article className="blog-card">
+                <h2 className="blog-title">{post.title}</h2>
+                <p className="blog-excerpt">{post.excerpt}</p>
+                <span className="read-more">Read More →</span>
+              </article>
+            </Link>
           ))}
         </div>
       </main>

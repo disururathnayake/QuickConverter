@@ -191,6 +191,49 @@ function Home() {
           }
         ]}
       />
+
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "24px", margin: "40px 0" }}>
+  {/* Product Hunt Badge */}
+  <a
+    href="https://www.producthunt.com/posts/quick-converter?utm_source=badge-featured&utm_medium=badge&utm_campaign=quick-converter"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: "inline-block" }}
+  >
+    <img
+      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=960678&theme=light"
+      alt="Quick Converter on Product Hunt"
+      style={{ height: "50px" }}
+    />
+  </a>
+
+  {/* X (Twitter) Badge Styled Like a Button */}
+  <a
+    href="https://x.com/quickconverter"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      backgroundColor: "#f3f4f6",
+      padding: "8px 16px",
+      borderRadius: "999px",
+      textDecoration: "none",
+      color: "#000",
+      fontWeight: "500",
+      fontSize: "15px",
+      boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
+      gap: "8px"
+    }}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1200 1227" fill="none">
+      <path fill="black" d="M1120 0H894L585 426L269 0H0L441 576L0 1227H326L658 756L1006 1227H1200L744 640L1120 0Z"/>
+    </svg>
+    Follow us on X
+  </a>
+</div>
+
+
       <Footer />
     </div>
   );
