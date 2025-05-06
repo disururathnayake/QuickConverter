@@ -19,6 +19,7 @@ function Footer() {
                     <Link to="/split-pdf">Split PDF</Link>
                     <Link to="/compress-pdf">Compress PDF</Link>
                     <Link to="/remove-pages">Remove Pages</Link>
+                    <Link to="/edit-pdf">Edit PDF</Link>
                 </div>
 
                 <div className="footer-section">

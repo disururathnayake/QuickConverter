@@ -32,6 +32,7 @@ function Navbar() {
             <Link to="/split-pdf" onClick={() => setIsOpen(false)}>Split PDF</Link>
             <Link to="/compress-pdf" onClick={() => setIsOpen(false)}>Compress PDF</Link>
             <Link to="/remove-pages" onClick={() => setIsOpen(false)}>Remove Pages</Link>
+            <Link to="/edit-pdf" onClick={() => setIsOpen(false)}>Edit PDF</Link>
           </div>
         </div>
 

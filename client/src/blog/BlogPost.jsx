@@ -31,6 +31,7 @@ function BlogPost() {
       <Helmet>
         <title>{post.title} | Quick Converter</title>
         <meta name="description" content={post.description} />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://quickconverter.pro/blog/${slug}`} />
       </Helmet>
       <Navbar />

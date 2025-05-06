@@ -11,6 +11,7 @@ function PrivacyPolicy() {
       <Helmet>
         <title>Privacy Policy | Quick Converter</title>
         <meta name="description" content="Read Quick Converter's privacy policy to understand how we protect your data and ensure user confidentiality." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://quickconverter.pro/privacy-policy" />
       </Helmet>
 

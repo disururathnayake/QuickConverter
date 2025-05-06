@@ -19,6 +19,7 @@ import pdftojpg from "./assets/pdf-to-jpg.webp";
 import removepages from "./assets/remove-pages.webp";
 import pdftopng from "./assets/pdf-to-png.webp";
 import pdftotxt from "./assets/pdf-to-txt.webp";
+import editpdf from "./assets/edit-pdf.webp";
 
 
 function Home() {
@@ -51,6 +52,13 @@ function Home() {
         image: removepages,
         href: "/remove-pages",
         alt: "Remove Pages from PDF Icon",
+      },
+      {
+        name: "Edit PDF",
+        description: "Write, highlight, sign, and edit PDF documents online. No watermark, no signup.",
+        image: editpdf,
+        href: "/edit-pdf",
+        alt: "Edit PDF Icon",
       }
     ],
 
@@ -117,12 +125,13 @@ function Home() {
         <title>Quick Converter | Free Online PDF Tools</title>
         <meta
           name="description"
-          content="Convert, compress, merge, split, and summarize PDF files online for free with Quick Converter."
+          content="Convert, compress, merge, split, edit, and summarize PDF files online for free with Quick Converter."
         />
         <meta
           name="keywords"
-          content="pdf to word, word to pdf, merge pdf, compress pdf, split pdf, unlock pdf, summarize pdf"
+          content="pdf to word, word to pdf, merge pdf, compress pdf, split pdf, unlock pdf, summarize pdf, edit pdf, pdf editor"
         />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://quickconverter.pro/" />
         <link rel="preload" as="image" href="/assets/logo.webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

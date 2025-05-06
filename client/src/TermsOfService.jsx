@@ -12,6 +12,7 @@ function TermsOfService() {
       <Helmet>
         <title>Terms of Service | Quick Converter</title>
         <meta name="description" content="Read Quick Converter's Terms of Service to understand your rights and responsibilities while using our free PDF tools." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://quickconverter.pro/terms-of-service" />
       </Helmet>
 

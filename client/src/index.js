@@ -34,6 +34,7 @@ const PdfToPng = React.lazy(() => import("./pdf-to-png/Pdftopng.jsx"));
 const PdfToTxt = React.lazy(() => import("./pdf-to-txt/Pdftotxt.jsx"));
 const BlogHome = React.lazy(() => import("./blog/BlogHome.jsx"));
 const BlogPost = React.lazy(() => import("./blog/BlogPost.jsx"));
+const Editpdf = React.lazy(() => import("./edit-pdf/Editpdf.jsx"));
 
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -58,6 +59,7 @@ root.render(
         <Route path="/remove-pages" element={<Removepages />} />
         <Route path="/pdf-to-png" element={<PdfToPng />} />
         <Route path="/pdf-to-txt" element={<PdfToTxt />} />
+        <Route path="/edit-pdf" element={<Editpdf />} />
         <Route path="/blog" element={<BlogHome />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
 
