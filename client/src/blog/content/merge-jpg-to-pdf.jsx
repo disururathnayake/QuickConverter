@@ -1,5 +1,4 @@
 import React from "react";
-import stepImage from "../../assets/step-by-step guide-merge-jpg-to-pdf.webp";
 
 const MergeJpgToPdfPost = () => (
   <div className="blog-post">
@@ -27,7 +26,7 @@ const MergeJpgToPdfPost = () => (
     </ol>
 
     <img
-      src={stepImage}
+      src="/assets/step-by-step-guide-merge-jpg-to-pdf.webp"
       alt="Step-by-step guide: How to merge JPG images into a single PDF using Quick Converter"
       className="blog-inline-image"
       width="800"

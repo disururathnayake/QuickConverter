@@ -13,7 +13,12 @@ const blogPosts = [
     excerpt:
       "Convert multiple JPG images into a single PDF instantly with Quick Converter. Free, secure, no signup required – optimized for high-quality merging.",
   },
-  // Add more posts here as needed
+  {
+    slug: "best-pdf-converters",
+    title: "The Best Free Online PDF Converters in 2025 (Ranked & Reviewed)",
+    excerpt: "Explore the top free PDF converters for 2025 and discover why Quick Converter is your best choice. Fast, secure, and packed with essential tools.",
+  },
+  
 ];
 
 function BlogHome() {
