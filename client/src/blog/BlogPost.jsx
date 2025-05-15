@@ -7,6 +7,8 @@ import "./Blog.css";
 
 import MergeJpgToPdfPost from "./content/merge-jpg-to-pdf";
 import BestPdfConvertersPost from "./content/best-pdf-converters.jsx";
+import BestPdfMergersPost from "./content/best-merge-pdf-converters.jsx";
+
 
 
 const blogContent = {
@@ -23,6 +25,12 @@ const blogContent = {
     image: "https://quickconverter.pro/assets/best-pdf-converters-2025.webp",
     component: <BestPdfConvertersPost />,
   },
+  "best-pdf-mergers": {
+  title: "Top 5 Free Online PDF Mergers in 2025 (No Signup, No Watermarks)",
+  description: "Compare the top free PDF merging tools of 2025. No signup, no watermark, and 100% free. Quick Converter included!",
+  image: "https://quickconverter.pro/assets/best-pdf-mergers-2025.webp",
+  component: <BestPdfMergersPost />,
+},
   // Future posts can go here...
 };
 

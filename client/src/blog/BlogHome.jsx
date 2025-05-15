@@ -18,6 +18,12 @@ const blogPosts = [
     title: "The Best Free Online PDF Converters in 2025 (Ranked & Reviewed)",
     excerpt: "Explore the top free PDF converters for 2025 and discover why Quick Converter is your best choice. Fast, secure, and packed with essential tools.",
   },
+  {
+    slug: "best-pdf-mergers",
+    title: "Top 5 Free Online PDF Mergers in 2025 (No Signup, No Watermarks)",
+    excerpt:
+      "Discover the top free PDF merging tools with no watermarks or login required. Compare features and see why Quick Converter is a rising favorite.",
+  },
   
 ];
 
